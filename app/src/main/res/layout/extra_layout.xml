@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tvduct_system"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:layout_weight="1"
+        android:text="Duct System"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tvduct_type"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Type of Duct"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RadioGroup
+        android:id="@+id/rgducttype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_weight="1">
+
+        <RadioButton
+            android:id="@+id/rbducttypeflex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Flex Duct"
+            android:textColor="@color/gray" />
+
+
+        <RadioButton
+            android:id="@+id/rbducttypemetal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Metal"
+            android:textColor="@color/gray" />
+
+        <RadioButton
+            android:id="@+id/rbducttypealuminumflex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Aluminum Flex"
+            android:textColor="@color/gray" />
+
+        <RadioButton
+            android:id="@+id/rbducttypepermeable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" Permeable "
+            android:textColor="@color/gray" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvsize_return_duct"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        android:text="Size of Return Duct"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etsize_return_duct"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tvsize_return_grill"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Size of Return Grill"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etsize_return_grill"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tvfilter_location"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        android:text="Filter Location"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etfilter_location"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tvsuplly_vent_no"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="# of Suppy Vents"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etsuplly_vent_no"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number" />
+
+  <!--  <TextView
+        android:id="@+id/tvinterested_test_seal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Interesed in Test &amp; Seal"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etinterested_test_seal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:inputType="text" />-->
+
+    <TextView
+        android:id="@+id/tvload_calcs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        android:text="Load Calculations"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etload_calcs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tvmeasured_return_air"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        android:text="Total Measured Returned Air"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etmeasured_return_air"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tvsystem_performance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="System Performance"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <CheckBox
+        android:id="@+id/ecbproblem_rooms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="Problem Rooms" />
+
+    <CheckBox
+        android:id="@+id/cbmaintains_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="Maintains Temp" />
+
+    <CheckBox
+        android:id="@+id/cbhigh_bills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="High Bills" />
+
+    <CheckBox
+        android:id="@+id/cbnoisy"
+        android:layout_width="wrap_content"
+        android:textColor="@color/gray"
+        android:layout_height="wrap_content"
+        android:text="Noisy" />
+
+    <CheckBox
+        android:id="@+id/cbcycles_freq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="Cycles Freq" />
+
+    <CheckBox
+        android:id="@+id/cbthermostat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="Thermostat" />
+
+    <TextView
+        android:id="@+id/tvother_problems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:text="Other Problems or Notes"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etother_problems"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:text="@string/submit"
+        android:textSize="32sp" />
+
+</LinearLayout>

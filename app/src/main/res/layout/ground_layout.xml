@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+
+
+    <TextView
+        android:id="@+id/tvpad_dimension"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Pad Size"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <!--topp-->
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/etpad_dimensionlengthfoot"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint=""
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="feet" />
+
+        <EditText
+            android:id="@+id/etpad_dimensionlengthinch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint=""
+            android:inputType="numberDecimal" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="inch" />
+
+
+        <TextView
+            android:id="@+id/tvpad_by"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" by " />
+        <EditText
+            android:id="@+id/etpad_dimensionwidthfoot"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint=""
+            android:inputType="numberDecimal" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="feet" />
+        <EditText
+            android:id="@+id/etpad_dimensionwidthinch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint=""
+            android:inputType="numberDecimal" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="inches" />
+
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20sp" />
+
+    <TextView
+        android:id="@+id/tvfittingtype"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Type of Fittings"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etfittingtype"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tvroomtoexpand"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Is There Room to Expand?"
+
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/rgroomtoexpand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/rbroomtoexpandyes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:layout_weight="1"
+                android:text="Yes, Room to Expand" />
+
+            <RadioButton
+                android:id="@+id/rbroomtoexpandno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:layout_weight="1"
+                android:text="No Room to Expand" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+</LinearLayout>

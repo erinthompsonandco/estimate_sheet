@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+
+    <TextView
+        android:id="@+id/tvroof_type"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        android:text="@string/roof_type"
+
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/etrooftype"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tvstand_size"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/stand_size"
+
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:textColor="@color/gray"
+        android:id="@+id/etstand_size"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tvelbows"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/elbows"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+
+        <EditText
+            android:textColor="@color/gray"
+            android:id="@+id/etelbowheight"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:hint="@string/elbowheighthint"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/tvinches"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:text="@string/inchesby" />
+
+        <EditText
+            android:textColor="@color/gray"
+            android:id="@+id/etelbowwidth"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:hint="@string/width"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/tvinches1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:text="@string/inches" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvdownshot"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/downshot"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:textColor="@color/gray"
+        android:id="@+id/etdownshot"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tvpitch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/pitch"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:textColor="@color/gray"
+        android:id="@+id/etpitch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:inputType="text" />
+
+</LinearLayout>

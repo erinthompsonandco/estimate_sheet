@@ -1,0 +1,434 @@
+
+
+ "&" + name_key + URLEncoder.encode(etname, "UTF-8") + 
+ "&" + address_key + URLEncoder.encode(etaddress, "UTF-8") + 
+ "&" + phone_key + URLEncoder.encode(etphone, "UTF-8") +
+ "&" + existing_furnace_key + URLEncoder.encode(, "UTF-8") + 
+ "&" + kbtu_key + URLEncoder.encode(etkbtu, "UTF-8") + 
+ "&" + up_flow_key + URLEncoder.encode(etup_flow, "UTF-8") + 
+ "&" + down_flow_key + URLEncoder.encode(etdown_flow, "UTF-8") + 
+ "&" + furnace_dimension_key + URLEncoder.encode(etfurnace_dimension, "UTF-8") +
+ "&" + closet_dimension_key + URLEncoder.encode(etcloset_dimension, "UTF-8") +
+ "&" + door_width_key + URLEncoder.encode(etdoor_width, "UTF-8") +
+ "&" + platform_return_air_key + URLEncoder.encode(etplatform_return_air, "UTF-8") + 
+ "&" + flu_pipe_type_size_key + URLEncoder.encode(etflu_pipe_type_size, "UTF-8") + 
+ "&" + comb_vents_key + URLEncoder.encode(etcomb_vents, "UTF-8") + 
+ "&" + floor_condition_key + URLEncoder.encode(etfloor_condition, "UTF-8") + 
+ "&" + condensate_drain_key + URLEncoder.encode(etcondensate_drain, "UTF-8") +
+ "&" + existing_condensor_key + URLEncoder.encode(, "UTF-8") + 
+ "&" + tons_key + URLEncoder.encode(ettons, "UTF-8") + 
+ "&" + pad_size_key + URLEncoder.encode(etpad_size, "UTF-8") + 
+ "&" + breaker_key + URLEncoder.encode(Stringetbreaker, "UTF-8") + 
+ "&" + diconnect_key + URLEncoder.encode(etdiconnect, "UTF-8") + 
+ "&" + line_set_size_key + URLEncoder.encode(etline_set_size, "UTF-8") + 
+ "&" + approx_length_key + URLEncoder.encode(etapprox_length, "UTF-8") + 
+ "&" + duct_system_key + URLEncoder.encode(etduct_type, "UTF-8") + 
+ "&" + size_return_duct_key + URLEncoder.encode(etsize_return_duct, "UTF-8") + 
+ 26s size_return_grill_key + URLEncoder.encode(etsize_return_grill, "UTF-8") + 
+ "&" +  filter_location_key + URLEncoder.encode(etfilter_location, "UTF-8") + 
+ "&" +  suplly_vent_no_key + URLEncoder.encode(etsuplly_vent_no, "UTF-8") + 
+ "&" +  interested_test_seal_key + URLEncoder.encode(etinterested_test_seal, "UTF-8") + 
+ "&" +  load_calcs_key + URLEncoder.encode(etload_calcs, "UTF-8") + 
+ "&" +  measured_return_air_key + URLEncoder.encode(etmeasured_return_air, "UTF-8") + 
+ "&" +  system_performance_key + URLEncoder.encode(, "UTF-8") + 
+ "&" +  problem_rooms_key + URLEncoder.encode(problemrooms, "UTF-8") + 
+ "&" +  maintains_temp_key + URLEncoder.encode(temp, "UTF-8") + 
+ "&" +  high_bills_key + URLEncoder.encode(bills, "UTF-8") + 
+ "&" +  noisy_key + URLEncoder.encode(noisy, "UTF-8") + 
+ "&" +  cycles_freq_key + URLEncoder.encode(cycles, "UTF-8") + 
+ "&" +  thermostat_key + URLEncoder.encode(thermostat, "UTF-8") + 
+ "&" +  other_problems_key + URLEncoder.encode(etother_problems, "UTF-8") + "UTF-8") 
+ ;
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+****************************************************************************************************
+
+     <TextView
+                  android:id="@+id/tvsystem_performance"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_weight="1"
+                  android:text="System Performance"
+                  android:textAppearance="?android:attr/textAppearanceLarge" />
+     <CheckBox
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="New CheckBox"
+           android:id="@+id/ecbproblem_rooms"
+          />
+
+  <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New CheckBox"
+        android:id="@+id/cbmaintains_temp"
+       />
+
+  <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New CheckBox"
+        android:id="@+id/cbhigh_bills"
+       />
+
+  <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New CheckBox"
+        android:id="@+id/cbnoisy"
+       />
+
+  <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New CheckBox"
+        android:id="@+id/cbcycles_freq"
+       />
+
+  <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New CheckBox"
+        android:id="@+id/cbthermostat"
+       />
+<TextView
+                  android:id="@+id/tvother_problems"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_horizontal"
+                  android:layout_weight="1"
+                  android:text="System Performance"
+                  android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/etother_problems"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp" />
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+****************************************************************************************************
+
+ EditText etname;
+
+ EditText etaddress;
+ EditText etphone;
+ EditText etexisting_furnace;
+ EditText etkbtu;
+ EditText etup_flow;
+ EditText etdown_flow;
+ EditText etfurnace_dimension;
+ EditText etcloset_dimension;
+ EditText etdoor_width;
+ EditText etplatform_return_air;
+ EditText etflu_pipe_type_size;
+ EditText etcomb_vents;
+ EditText etfloor_condition;
+ EditText etcondensate_drain = "entry.558582079":
+ EditText etexisting_condensor;
+ EditText ettons;
+ EditText etpad_size;
+ EditText etbreaker;
+ EditText etdiconnect;
+ EditText etline_set_size;
+ EditText etapprox_length;
+ EditText etduct_system;
+ EditText etduct_type;
+ EditText etsize_return_duct;
+ EditText et size_return_grill;
+ EditText et filter_location;
+ EditText et suplly_vent_no;
+ EditText et interested_test_seal;
+ EditText et load_calcs;
+ EditText et measured_return_air;
+ EditText et system_performance;
+ EditText et problem_rooms;
+ EditText et maintains_temp;
+ EditText et high_bills;
+ EditText et noisy;
+ EditText et cycles_freq;
+ EditText et thermostat;
+ EditText et other_problems;
+
+
+ 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+****************************************************************************************************
+
+ 
+ public static final String name_key = "entry.157149672";
+ public static final String address_key = "entry.1010143073";
+ public static final String phone_key = "entry.610424818";
+ public static final String existing_furnace_key = "entry.1511876519";
+ public static final String kbtu_key = "entry.602589398";
+ public static final String up_flow_key = "entry.1406351811";
+ public static final String down_flow_key = "entry.1708161375";
+ public static final String furnace_dimension_key = "entry.450820439";
+ public static final String closet_dimension_key = "entry.320993328";
+ public static final String door_width_key = "entry.1517602566";
+ public static final String platform_return_air_key = "entry.1771401370";
+ public static final String flu_pipe_type_size_key = "entry.365672378";
+ public static final String comb_vents_key = "entry.986694026";
+ public static final String floor_condition_key = "entry.2012145590";
+ public static final String condensate_drain_key = "entry.558582079":
+ public static final String existing_condensor_key = "entry.80363832";
+ public static final String tons_key = "entry.1860995146";
+ public static final String pad_size_key = "entry.1046709638";
+ public static final String breaker_key = "entry.1036334794";
+ public static final String diconnect_key = "entry.428074047";
+ public static final String line_set_size_key = "entry.662074321";
+ public static final String approx_length_key = "entry.1142054493";
+ public static final String duct_system_key = "entry.1768610892";
+ public static final String duct_type_key = "entry.1309241823";
+ public static final String size_return_duct_key = "entry.1855044343";
+ public static final String  size_return_grill_key = "entry.490353232";
+ public static final String  filter_location_key = "entry.636529183";
+ public static final String  suplly_vent_no_key = "entry.946068431";
+ public static final String  interested_test_seal_key = "entry.1184702602";
+ public static final String  load_calcs_key = "entry.1397375405";
+ public static final String  measured_return_air_key = "entry.479993022";
+ public static final String  system_performance_key = "entry.1277726568";
+ public static final String  problem_rooms_key = "entry.766320572";
+ public static final String  maintains_temp_key = "entry.766320572";
+ public static final String  high_bills_key = "entry.889302158";
+ public static final String  noisy_key = "entry.771122672";
+ public static final String  cycles_freq_key = "entry.1107875997";
+ public static final String  thermostat_key = "entry.1082695116";
+ public static final String  other_problems_key = "entry.1353810658;
+ 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ ****************************************************************************************************
+
+                        numberEditText.getText().toString(),
+
+ 
+    etname = (EditText) findViewByid(R.id.etname);
+   etaddress =  (EditText) findViewByid(R.id.etaddress);
+    etphone = (EditText) findViewByid(R.id.etphone);
+   etexisting_furnace  = (EditText ) findViewByid(R.id.etexisting_furnace);
+     etkbtu = (EditText ) findViewByid(R.id.etkbtu);
+    etup_flow = (EditText ) findViewByid(R.id.etup_flow);
+   etdown_flow  = (EditText ) findViewByid(R.id.etdown_flow);
+   etfurnace_dimension = (EditText ) findViewByid(R.id.etfurnace_dimension);
+    etcloset_dimension = (EditText ) findViewByid(R.id.etcloset_dimension);
+    etdoor_width = (EditText ) findViewByid(R.id.etdoor_width);
+    etplatform_return_air = (EditText ) findViewByid(R.id.etplatform_return_air);
+    etflu_pipe_type_size = (EditText ) findViewByid(R.id.etflu_pipe_type_size);
+    etcomb_vents = (EditText ) findViewByid(R.id.etcomb_vents);
+    etfloor_condition = (EditText ) findViewByid(R.id.etfloor_condition);
+    etcondensate_drain = (EditText ) findViewByid(R.id.etcondensate_drain);
+    etexisting_condensor = (EditText ) findViewByid(R.id.etexisting_condensor);
+  ettons   = (EditText ) findViewByid(R.id.ettons);
+   etpad_size  = (EditText ) findViewByid(R.id.etpad_size);
+    etbreaker = (EditText ) findViewByid(R.id.etbreaker);
+   etdiconnect  = (EditText ) findViewByid(R.id.etdiconnect);
+    etline_set_size = (EditText ) findViewByid(R.id.etline_set_size);
+    etapprox_length = (EditText ) findViewByid(R.id.etapprox_length);
+   etduct_system  = (EditText ) findViewByid(R.id.etduct_system);
+    etduct_type = (EditText ) findViewByid(R.id.etduct_type);
+   etsize_return_duct  = (EditText ) findViewByid(R.id.etsize_return_duct);
+  etsize_return_grill   = (EditText ) findViewByid(R.id.etsize_return_grill);
+    etfilter_location = (EditText ) findViewByid(R.id.etfilter_location);
+   etsuplly_vent_no  = (EditText ) findViewByid(R.id.etsuplly_vent_no);
+   etinterested_test_seal  = (EditText ) findViewByid(R.id.etinterested_test_seal);
+    etload_calcs = (EditText ) findViewByid(R.id.etload_calcs);
+   etmeasured_return_air  = (EditText ) findViewByid(R.id.etmeasured_return_air);
+    etsystem_performance = (EditText ) findViewByid(R.id.etsystem_performance);
+    etproblem_rooms = (EditText ) findViewByid(R.id.etproblem_rooms);
+    etmaintains_temp = (EditText ) findViewByid(R.id.etmaintains_temp);
+    ethigh_bills = (EditText ) findViewByid(R.id.ethigh_bills);
+    etnoisy = (EditText ) findViewByid(R.id.etnoisy);
+    etcycles_freq = (EditText ) findViewByid(R.id.etcycles_freq);
+    etthermostat = (EditText ) findViewByid(R.id.etthermostat);
+   etother_problems  = (EditText ) findViewByid(R.id.etother_problems);
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ ****************************************************************************************************
+
+                       String etname = ContactData[1];
+                       String  etaddress = ContactData[2];
+                       String etphone = ContactData[3];
+                       String etkbtu = ContactData[4];
+                       String etup_flow = ContactData[5];
+                       String etdown_flow = ContactData[6];
+                       String etfurnace_dimension_height = ContactData[7];
+                       String etfurnace_dimension_width = ContactData[8];
+                       String etcloset_dimension_height = ContactData[9];
+                       String etcloset_dimension_width = ContactData[10];
+                       String etdoor_width = ContactData[11];
+                       String etplatform_return_air = ContactData[12];
+                       String etflu_pipe_type_size = ContactData[13];
+                       String etcomb_vents = ContactData[14];
+                       String etfloor_condition = ContactData[15];
+                       String etcondensate_drain = ContactData[16];
+                       String ettons = ContactData[17];
+                       String etpad_size = ContactData[18];
+                       String Stringetbreaker = ContactData[19];
+                       String etdiconnect = ContactData[20];
+                       String etline_set_size = ContactData[21]
+                       String etapprox_length = ContactData[22];
+                       String etduct_type = ContactData[23];
+                       String etsize_return_duct = ContactData[24];
+                       String etsize_return_grill = ContactData[25];
+                       String etfilter_location = ContactData[26];
+                       String etsuplly_vent_no = ContactData[27];
+                       String etinterested_test_seal = ContactData[28];
+                       String etload_calcs = ContactData[29];
+                       String etmeasured_return_air = ContactData[30];
+                       String problemrooms = ContactData[31];
+                       String temp = ContactData[32];
+                       String bills = ContactData[33];
+                       String noisy = ContactData[34];
+                       String cycles = ContactData[35];
+                       String thermostat = ContactData[36];
+                       String etother_problems = ContactData[37];
+
+                       //////////////////////////////////////
+                       ************************************
+
+
+                postDataTask.execute(URL,
+                        etname.getText().toString(),
+                        etaddress.getText().toString(),
+                        etphone.getText().toString(),
+                        // etexisting_furnace.getText().toString(),
+                        etkbtu.getText().toString(),
+                        etup_flow.getText().toString(),
+                        etdown_flow.getText().toString(),
+                        etfurnace_dimension_height.getText().toString(),
+                        etfurnace_dimension_width.getText().toString(),
+                        etcloset_dimension_height.getText().toString(),
+                        etcloset_dimension_width.getText().toString(),
+                        etdoor_width.getText().toString(),
+                        etplatform_return_air.getText().toString(),
+                        etflu_pipe_type_size.getText().toString(),
+                        etcomb_vents.getText().toString(),
+                        etfloor_condition.getText().toString(),
+                        etcondensate_drain.getText().toString(),
+                        // etexisting_condensor.getText().toString(),
+                        ettons.getText().toString(),
+                        etpad_size.getText().toString(),
+                        etbreaker.getText().toString(),
+                        etdiconnect.getText().toString(),
+                        etline_set_size.getText().toString(),
+                        etapprox_length.getText().toString(),
+                        //etduct_system.getText().toString(),
+                        etduct_type.getText().toString(),
+                        etsize_return_duct.getText().toString(),
+                        etsize_return_grill.getText().toString(),
+                        etfilter_location.getText().toString(),
+                        etsuplly_vent_no.getText().toString(),
+                        etinterested_test_seal.getText().toString(),
+                        etload_calcs.getText().toString(),
+                        etmeasured_return_air.getText().toString(),
+                        //   etsystem_performance.getText().toString(),
+                        problemrooms,
+                        temp,
+                        bills,
+                        noisy,
+                        cycles,
+                        thermostat,
+                        etother_problems.getText().toString(),
+                        noData
+
+                         np.setOnValueChangedListener(new OnValueChangeListener() {
+
+                        		@Override
+                        		public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                        			// TODO Auto-generated method stub
+
+                        			String Old = "Old Value : ";
+                        			String New = "New Value : ";
+
+                        			tv1.setText(Old.concat(String.valueOf(oldVal)));
+                        			tv2.setText(New.concat(String.valueOf(newVal)));
+                        		}
+                        	});
+
+
+       protected Boolean doInBackground(String... contactData) {
+                   Boolean result = true;
+                   String url = contactData[0];
+                   String etname = contactData[1];
+                   String etaddress = contactData[2];
+                   String etphone = contactData[3];
+                   String etkbtu = contactData[4];
+                   String etup_flow = contactData[5];
+                   String etdown_flow = contactData[6];
+                   //you need to concatonate height and weight
+                   String etfurnace_dimension = contactData[7];
+                   //  String etfurnace_dimension_width = contactData[8];
+                   String etcloset_dimension = contactData[8];
+                   //  String etcloset_dimension_width = contactData[10];
+                   String etdoor_width = contactData[9];
+                   String etplatform_return_air = contactData[10];
+                   String etflu_pipe_type_size = contactData[11];
+                   String etcomb_vents = contactData[12];
+                   String etfloor_condition = contactData[13];
+                   String etcondensate_drain = contactData[14];
+                   String ettons = contactData[15];
+                   String etpad_size = contactData[16];
+                   String etbreaker = contactData[17];
+                   String etdiconnect = contactData[18];
+                   String etline_set_size = contactData[19];
+                   String etapprox_length = contactData[20];
+                   String etduct_type = contactData[21];
+                   String etsize_return_duct = contactData[22];
+                   String etsize_return_grill = contactData[23];
+                   String etfilter_location = contactData[24];
+                   String etsuplly_vent_no = contactData[25];
+                   String etinterested_test_seal = contactData[26];
+                   String etload_calcs = contactData[27];
+                   String etmeasured_return_air = contactData[28];
+                   String problemrooms = contactData[29];
+                   String temp = contactData[30];
+                   String bills = contactData[31];
+                   String noisy = contactData[32];
+                   String cycles = contactData[33];
+                   String thermostat = contactData[34];
+                   String etother_problems = contactData[35];
+                   String nothing = contactData[36];
+                   String postBody = "";
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                
+
+
+
+ android:id="@+id/tvduct_system"
+ android:id="@+id/tvduct_type"
+ android:id="@+id/etduct_type"
+ android:id="@+id/tvsize_return_duct"
+ android:id="@+id/etsize_return_duct"
+ android:id="@+id/tvsize_return_grill"
+ android:id="@+id/etsize_return_grill"
+ android:id="@+id/tvfilter_location"
+ android:id="@+id/etfilter_location"
+ android:id="@+id/tvsuplly_vent_no"
+ android:id="@+id/etsuplly_vent_no"
+ android:id="@+id/tvinterested_test_seal"
+ android:id="@+id/etinterested_test_seal"
+ android:id="@+id/tvload_calcs"
+ android:id="@+id/etload_calcs"
+ android:id="@+id/tvmeasured_return_air"
+ android:id="@+id/etmeasured_return_air"
+ android:id="@+id/tvsystem_performance"
+ android:id="@+id/ecbproblem_rooms"
+ android:id="@+id/cbmaintains_temp"
+ android:id="@+id/cbhigh_bills"
+ android:id="@+id/cbnoisy"
+ android:id="@+id/cbcycles_freq"
+ android:id="@+id/cbthermostat"
+ android:id="@+id/tvother_problems"
+ android:id="@+id/etother_problems"
+ android:id="@+id/btnSubmit"

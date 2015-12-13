@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/user_information_layout"
+                layout="@layout/user_information_layout" />
+
+
+            <TextView
+                android:id="@+id/tvgaselect"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Is The Unit Heat Pump or Gas/Electric?"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/rggaselect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/rbelect"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=" Heat Pump "
+                        android:textColor="@color/gray" />
+
+                    <RadioButton
+                        android:id="@+id/rbgas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=" Gas / Electric "
+                        android:textColor="@color/gray" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvgas"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Natural Gas or Propane?"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <LinearLayout
+                android:id="@+id/gastype_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/rggas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/rbnatural"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=" Natural Gas "
+                        android:textColor="@color/gray" />
+
+                    <RadioButton
+                        android:id="@+id/rbpropane"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=" Propane "
+                        android:textColor="@color/gray" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvgroundroof"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ground Unit or Roof Unit"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <RadioGroup
+                android:id="@+id/rggroundroof"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:textColor="@color/gray">
+
+                <RadioButton
+                    android:id="@+id/rbground"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ground Unit"
+                    android:textColor="@color/gray" />
+
+                <RadioButton
+                    android:id="@+id/rbroof"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Roof Unit"
+                    android:textColor="@color/gray" />
+            </RadioGroup>
+
+
+            <include
+                android:id="@+id/ground_layout"
+                layout="@layout/ground_layout" />
+
+            <include
+                android:id="@+id/roof_layout"
+                layout="@layout/roof_layout" />
+
+
+            <TextView
+                android:id="@+id/tvbtu"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="KBTU's"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:textColor="@color/gray"
+                android:id="@+id/etbtu"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:inputType="numberDecimal"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/tvtons"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tons"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <RadioGroup
+                android:id="@+id/rgtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/rbtons2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2 Tons"
+                    android:textColor="@color/gray" />
+
+                <RadioButton
+                    android:id="@+id/rbtons2_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2.5 Tons"
+                    android:textColor="@color/gray" />
+
+                <RadioButton
+                    android:id="@+id/rbtons3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3 Tons"
+                    android:textColor="@color/gray" />
+
+                <RadioButton
+                    android:id="@+id/rbtons3_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3.5 Tons"
+                    android:textColor="@color/gray" />
+
+                <RadioButton
+                    android:id="@+id/rbtons4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="4 Tons"
+                    android:textColor="@color/gray" />
+
+                <RadioButton
+                    android:id="@+id/rbtons5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="5 Tons"
+                    android:textColor="@color/gray" />
+            </RadioGroup>
+
+            <include
+                android:id="@+id/extra_layout"
+                layout="@layout/extra_layout" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

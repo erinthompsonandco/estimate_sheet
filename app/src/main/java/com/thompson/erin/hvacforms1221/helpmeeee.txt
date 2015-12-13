@@ -1,0 +1,128 @@
+ //lets setup the entry keys for all of our values to be inserted, shall we?
+     1. name_key 
+     2. address_key 
+     3. number_key 
+     4. email_key 
+     5. gas_or_elect_key 
+     6. natural_or_propane_key 
+     7. mobile_home_key 
+     8. indoor_outdoor_furnace_key 
+     9. ground_key 
+     10. pad_size_key 
+     11. type_of_fittings_key 
+     12. room_to_expand_key 
+     13. roof_tonnage_key 
+     14. roof_key
+     15. type_of_roof_key
+     16. stand_size_key 
+     17. elbows_key
+     18. down_shot_key
+     19. pitch_of_roof_key
+     20. tonage_roof_key 
+     21. btu_roof_key 
+     22. Existing_Condenser_apporx_length_key
+     23. duct_system_type_key 
+     24. duct_system_size_of_return_duct_key 
+     25. duct_system_size_of_return_grill_key 
+     26. duct_system_location_of_filter_key 
+     27. duct_system_num_of_supply_vent_key 
+     28. duct_system_Load_Calcs_Needed_key
+     29. duct_system_Interested_in_test_and_seal_key 
+     30. duct_system_total_meausered_return_air_key
+     31. system_performance_problem_rooms_key
+     32. system_performance_maintains_temp_key
+     33. system_performance_high_bills_key
+     34. system_performance_noisy_key 
+     35. system_performance_cycles_freq_key 
+     36. system_performance_change_thermostat_key
+     37. other_problems_or_notes_key 
+     
+            1. name
+          2. address 
+          3. number 
+          4. email 
+          5. gas_or_elect 
+          6. natural_or_propane 
+          7. mobile_home 
+          8. indoor_outdoor_furnace 
+          9. ground 
+          10. pad_size 
+          11. type_of_fittings 
+          12. room_to_expand 
+          13. roof_tonnage 
+          14. roof
+          15. type_of_roof
+          16. stand_size 
+          17. elbows
+          18. down_shot
+          19. pitch_of_roof
+          20. tonage_roof 
+          21. btu_roof 
+          22. Existing_Condenser_apporx_length
+          23. duct_system_type 
+          24. duct_system_size_of_return_duct 
+          25. duct_system_size_of_return_grill 
+          26. duct_system_location_of_filter 
+          27. duct_system_num_of_supply_vent 
+          28. duct_system_Load_Calcs_Needed
+          29. duct_system_Interested_in_test_and_seal 
+          30. duct_system_total_meausered_return_air
+          31. system_performance_problem_rooms
+          32. system_performance_maintains_temp
+          33. system_performance_high_bills
+          34. system_performance_noisy 
+          35. system_performance_cycles_freq 
+          36. system_performance_change_thermostat
+          37. other_problems_or_notes 
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+
+       EditText etsize_return_duct,etsize_return_grill, etfilter_location, etsuplly_vent_no, etinterested_test_seal;
+        EditText etload_calcs, etmeasured_return_air, etother_problems ;
+
+        
+        
+        
+        // initiazlize chckboxes
+      CheckBox  cbproblemrooms, cbtemp, cbbills, cbnoisy, cbcycles,cbthermostat;
+        
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          

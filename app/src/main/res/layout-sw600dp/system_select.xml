@@ -21,7 +21,7 @@
                 android:layout_marginTop="20dp"
                 android:text="Please indicate the system type: "
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="28sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnSplit"
@@ -30,6 +30,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"
+
                 android:text="@string/split_system"
                 android:textSize="20sp" />
 

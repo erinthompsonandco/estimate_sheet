@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -29,15 +30,17 @@ import java.net.URLEncoder;
  * This should get data from out text fields and send it to our online database.
  */
 public class packageUnitSend extends AppCompatActivity {
+    String filter_location = "";
+
     String natural_propane = "";
     public static final MediaType FORM_DATA_TYPE = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
     public static final String URL = "https://docs.google.com/forms/d/1g2Zu8pcYI5zK9DoTZJ11iG1R2apLoS2O0xbDYn6BybY/formResponse";
     String tons = "";
     String ground_roof = "";
-
     Activity context = this;
     String nothing = "-";
     String gas_elect = "";
+    String loadCalcs = "";
 
     //lets setup the entry keys for all of our values to be inserted, shall we?
     public static final String name_key = "entry.1025159044";
@@ -77,7 +80,9 @@ public class packageUnitSend extends AppCompatActivity {
     public static final String system_performance_cycles_freq_key = "entry.293620830";
     public static final String system_performance_change_thermostat_key = "entry.778756792";
     public static final String other_problems_or_notes_key = "entry.1818835172";
-    // public static final String sheets_validation_key = "entry.348458398";
+    public static final String field_service_name_key = "entry.703370180";
+    public static final String price_to_replace_key = "entry.237023672";
+    public static final String system_quality_key = "entry.1247684630";
     //Declare all textviews, if you want.
     /*
     TextView tvname;
@@ -106,7 +111,7 @@ public class packageUnitSend extends AppCompatActivity {
     TextView tvduct_type;
     TextView tvsize_return_duct;
     TextView tvsize_return_grill;
-    TextView tvfilter_location;
+    TextView rter_location;
     TextView tvsuplly_vent_no;
     TextView tvinterested_test_seal;
     TextView tvload_calcs;
@@ -120,10 +125,12 @@ public class packageUnitSend extends AppCompatActivity {
     TextView tvthermostat;
     TextView tvother_problems;
 */
+
+
     EditText etdownshot, etpad_dimensionwidth, etpad_dimensionlength;
     EditText etelbowheight, etelbowwidth;
     //EditText etpad_dimensionwidthfoot_dimensionwidthfoot,etpad_dimensionwidthinch,etpad_dimensionlengthinch,etpad_dimensionlengthfoot;
-   EditText etpad_dimensionwidthinch,etpad_dimensionwidthfoot,etpad_dimensionlengthinch,etpad_dimensionlengthfoot;
+    EditText etpad_dimensionwidthinch, etpad_dimensionwidthfoot, etpad_dimensionlengthinch, etpad_dimensionlengthfoot;
 
     EditText etstand_size;
 
@@ -131,14 +138,15 @@ public class packageUnitSend extends AppCompatActivity {
     EditText etrooftype;
 
     // private NumberPicker npclosetHeightFoot, npclosetHeightInch, npclosetWidthInch, npclosetWidthFoot;
-   // private NumberPicker nppadHeightFoot, nppadHeightInch, nppadWidthInch, nppadWidthFoot;
+    // private NumberPicker nppadHeightFoot, nppadHeightInch, nppadWidthInch, nppadWidthFoot;
 
     //declare our edittexts from user_information_layout
     private EditText etname, etemail, etaddress, etphone;
     // declare our edittext from our ground_layout
     private RadioGroup rgroomtoexpand, rggaselect;
     private RadioButton rbroomtoexpandyes, rbroomtoexpandno, rbelect, rbgas, rbnatural, rbpropane;
-    private RadioGroup rggas;
+    private RadioButton rbloadcalcsyes, rbloadcalcsno;
+    private RadioGroup rggas, rgloadcalcs;
     // declare our edittext from our roof_layout
 
     //declare variables used everhwere
@@ -153,7 +161,7 @@ public class packageUnitSend extends AppCompatActivity {
 
 
     EditText etsize_return_duct, etsize_return_grill, etfilter_location, etsuplly_vent_no, etinterested_test_seal, etpitch;
-    EditText etload_calcs, etmeasured_return_air, etother_problems;
+    EditText etload_calcs, etmeasured_return_air, etother_problems, etsize_return_grill_width;
 
     // initiazlize chcboxes
 
@@ -161,8 +169,9 @@ public class packageUnitSend extends AppCompatActivity {
     * This can be misleading, as we are really only using one of these radiobuttons and getting the
     * ID and subsequently the text from it- WE AREN't USING BOTH RADIOBUTTONS.
     * */
-    RadioGroup rgducttype, rgtons, rggroundroof;
-    RadioButton rbtons2, rbroof, rbground, rbducttype;
+    RadioGroup rgducttype, rgtons, rggroundroof, rgquality;
+
+    RadioButton rbtons2, rbroof, rbground, rbducttype, rbbasic;
 
 
     @Override
@@ -171,15 +180,48 @@ public class packageUnitSend extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.package_unit_layout1);
+        TextView tvbasicinfo;
 //Don't istantiate UI objects until after you set the view, dummy.
-
-
+        TextView tvduct_system = (TextView) findViewById(R.id.tvduct_system);
+        tvduct_system.setBackgroundResource(R.color.grayseperate);
         View extra_view = findViewById(R.id.extra_layout);
-        View user_information = findViewById(R.id.user_information_layout);
+        View system_quality_price_layout = findViewById(R.id.system_quality_priace_layout);
+        final View user_information = findViewById(R.id.user_information_layout);
+        TextView tvnameuserinfo = (TextView) user_information.findViewById(R.id.tvnameuserinfo);
+        final EditText etpricetoreplace = (EditText) user_information.findViewById(R.id.etpricetoreplace);
 
+        tvnameuserinfo.setBackgroundResource(R.color.grayseperate);
         final View ground_layout = findViewById(R.id.ground_layout);
         final View roof_layout = findViewById(R.id.roof_layout);
+        TextView tvroof = (TextView) roof_layout.findViewById(R.id.tvroof);
+        tvroof.setBackgroundResource(R.color.grayseperate);
+        TextView tvground = (TextView) ground_layout.findViewById(R.id.tvground);
+        tvground.setBackgroundResource(R.color.grayseperate);
         etbtu = (EditText) findViewById(R.id.etbtu);
+        TextView tvother_problems = (TextView) extra_view.findViewById(R.id.tvother_problems);
+        tvother_problems.setBackgroundResource(R.color.grayseperate);
+
+        tvbasicinfo = (TextView) findViewById(R.id.tvbasicinfo);
+        TextView tvsystem_performance = (TextView) extra_view.findViewById(R.id.tvsystem_performance);
+        tvsystem_performance.setBackgroundResource(R.color.grayseperate);
+        tvbasicinfo.setBackgroundResource(R.color.grayseperate);
+        RadioGroup rgfilterlocation;
+        final RadioButton rbfilterlocationinside = (RadioButton) extra_view.findViewById(R.id.rbfilterlocationinside);
+        final RadioButton rbfilterlocationgrill = (RadioButton) extra_view.findViewById(R.id.rbfilterlocationgrill);
+        final RadioButton rbfilterlocationother = (RadioButton) extra_view.findViewById(R.id.rbfilterlocationother);
+        etfilter_location = (EditText) extra_view.findViewById(R.id.etfilter_location);
+        //final EditText etpricetoreplace = (EditText) user_information.findViewById(R.id.etpricetoreplace);
+
+        rgloadcalcs = (RadioGroup) extra_view.findViewById(R.id.rgloadcalcs);
+        rbloadcalcsyes = (RadioButton) extra_view.findViewById(R.id.rbloadcalcsyes);
+        rbloadcalcsno = (RadioButton) extra_view.findViewById(R.id.rbloadcalcsno);
+
+        rgquality = (RadioGroup) user_information.findViewById(R.id.rgquality);
+        rbbasic = (RadioButton) user_information.findViewById(R.id.rbbasic);
+
+
+        etfilter_location.setVisibility(View.GONE);
+
      /*   nppadHeightInch = (NumberPicker) ground_layout.findViewById(R.id.nppadHeightInch);
         nppadWidthInch = (NumberPicker) ground_layout.findViewById(R.id.nppadWidthInch);
         nppadWidthFoot = (NumberPicker) ground_layout.findViewById(R.id.nppadWidthFoot);
@@ -192,18 +234,18 @@ public class packageUnitSend extends AppCompatActivity {
         etpitch = (EditText) roof_layout.findViewById(R.id.etpitch);
         rgducttype = (RadioGroup) extra_view.findViewById(R.id.rgducttype);
         etsize_return_duct = (EditText) extra_view.findViewById(R.id.etsize_return_duct);
+        etsize_return_grill_width = (EditText) extra_view.findViewById(R.id.etsize_return_grill_width);
         etsize_return_grill = (EditText) extra_view.findViewById(R.id.etsize_return_grill);
-        etfilter_location = (EditText) extra_view.findViewById(R.id.etfilter_location);
         etsuplly_vent_no = (EditText) extra_view.findViewById(R.id.etsuplly_vent_no);
-       // etinterested_test_seal = (EditText) extra_view.findViewById(R.id.etinterested_test_seal);
-        etload_calcs = (EditText) extra_view.findViewById(R.id.etload_calcs);
+        // etinterested_test_seal = (EditText) extra_view.findViewById(R.id.etinterested_test_seal);
+        // etload_calcs = (EditText) extra_view.findViewById(R.id.etload_calcs);
         etmeasured_return_air = (EditText) extra_view.findViewById(R.id.etmeasured_return_air);
         etother_problems = (EditText) extra_view.findViewById(R.id.etother_problems);
         etstand_size = (EditText) roof_layout.findViewById(R.id.etstand_size);
-        etpad_dimensionwidthfoot   = (EditText) ground_layout.findViewById(R.id.etpad_dimensionwidthfoot);
-        etpad_dimensionwidthinch  = (EditText) ground_layout.findViewById(R.id.etpad_dimensionwidthinch);
-        etpad_dimensionlengthinch  = (EditText) ground_layout.findViewById(R.id.etpad_dimensionlengthinch);
-        etpad_dimensionlengthfoot= (EditText) ground_layout.findViewById(R.id.etpad_dimensionlengthfoot);
+        etpad_dimensionwidthfoot = (EditText) ground_layout.findViewById(R.id.etpad_dimensionwidthfoot);
+        etpad_dimensionwidthinch = (EditText) ground_layout.findViewById(R.id.etpad_dimensionwidthinch);
+        etpad_dimensionlengthinch = (EditText) ground_layout.findViewById(R.id.etpad_dimensionlengthinch);
+        etpad_dimensionlengthfoot = (EditText) ground_layout.findViewById(R.id.etpad_dimensionlengthfoot);
 
         /*
         etpad_dimensionwidth = (EditText) roof_layout.findViewById(R.id.etpad_dimensionwidth);
@@ -219,7 +261,6 @@ public class packageUnitSend extends AppCompatActivity {
         rbroof = (RadioButton) findViewById(R.id.rbroof);
 
         Button btnSubmit = (Button) extra_view.findViewById(R.id.btnSubmit);
-
         etname = (EditText) user_information.findViewById(R.id.etname);
         etaddress = (EditText) user_information.findViewById(R.id.etaddress);
         etphone = (EditText) user_information.findViewById(R.id.etphone);
@@ -240,6 +281,7 @@ public class packageUnitSend extends AppCompatActivity {
 
 
         rgducttype = (RadioGroup) extra_view.findViewById(R.id.rgducttype);
+        rgfilterlocation = (RadioGroup) extra_view.findViewById(R.id.rgfilterlocation);
 
         rgtons = (RadioGroup) findViewById(R.id.rgtons);
 
@@ -268,46 +310,26 @@ public class packageUnitSend extends AppCompatActivity {
         * */
 
         tvgas = (TextView) findViewById(R.id.tvgas);
-
         final String foot = " Feet ";
         final String inches = " Inches ";
 
-       /* tvpadHeightFoot.setText(foot);
-        tvpadWidthFoot.setText(foot);
-        tvpadWidthInch.setText(inches);
-        tvpadHeightInch.setText(inches);
-*/
 
-   /*     nppadHeightFoot.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        rgfilterlocation.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String inner_foot2 = nppadHeightFoot.getValue() + foot;
-                tvpadHeightFoot.setText(inner_foot2);
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (rbfilterlocationgrill.getId() == checkedId) {
+                    etfilter_location.setVisibility(View.GONE);
+                    filter_location = rbfilterlocationgrill.getText().toString();
+                }
+                if (rbfilterlocationinside.getId() == checkedId) {
+                    etfilter_location.setVisibility(View.GONE);
+                    filter_location = rbfilterlocationinside.getText().toString();
+                }
+                if (rbfilterlocationother.getId() == checkedId) {
+                    etfilter_location.setVisibility(View.VISIBLE);
+                }
             }
         });
-        nppadHeightInch.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String inner_inch2 = nppadHeightInch.getValue() + inches;
-                tvpadHeightInch.setText(inner_inch2);
-
-            }
-        });
-        nppadWidthFoot.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String inner_foot1 = nppadWidthFoot.getValue() + foot;
-                tvpadWidthFoot.setText(inner_foot1);
-            }
-        });
-        nppadWidthInch.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String inner_inch1 = nppadWidthInch.getValue() + inches;
-                tvpadWidthInch.setText(inner_inch1);
-
-            }
-        });*/
 
 
         rggroundroof.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -335,7 +357,6 @@ public class packageUnitSend extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 if (rbgas.getId() == checkedId) {
-                    // rgamps.setVisibility(View.VISIBLE);
                     gas_elect = " Gas/Electric ";
                     tvgas.setVisibility(View.VISIBLE);
                     rggas.setVisibility(View.VISIBLE);
@@ -353,6 +374,23 @@ public class packageUnitSend extends AppCompatActivity {
                 }
             }
         });
+
+        rgloadcalcs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (rbloadcalcsyes.isPressed()) {
+                    loadCalcs = " Yes ";
+
+                }
+                if (rbloadcalcsno.isPressed()) {
+
+                    loadCalcs = " No ";
+
+                }
+
+            }
+        });
+
 
         btnSubmit.setOnClickListener(new View.OnClickListener()
 
@@ -409,6 +447,24 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
                                                  return;
                                              }
                                             */
+
+
+                                             String quality = "";
+                                             rgquality = (RadioGroup) user_information.findViewById(R.id.rgquality);
+                                             int selectedIdquality = rgquality.getCheckedRadioButtonId();
+                                             if (selectedIdquality != -1) {
+                                                 rbbasic = (RadioButton) findViewById(selectedIdquality);
+                                                 String myquality = rbbasic.getText().toString();
+                                                 quality += myquality;
+                                             }
+
+
+                                             int selectedIdloadcalc = rgloadcalcs.getCheckedRadioButtonId();
+                                             if (selectedIdloadcalc != -1) {
+                                                 rbloadcalcsyes = (RadioButton) findViewById(selectedIdloadcalc);
+                                                 loadCalcs = rbloadcalcsyes.getText().toString();
+                                             }
+
 
                                              rggas = (RadioGroup) findViewById(R.id.rggas);
                                              int gaselectID = rggas.getCheckedRadioButtonId();
@@ -467,53 +523,235 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
                                              if (cbthermostat.isChecked()) {
                                                  thermostat += "Thermostat";
                                              }
-                                        //     EditText etpad_dimensionwidthfoot,etpad_dimensionwidthinch,etpad_dimensionlengthinch,etpad_dimensionlengthfoot;
-                                             String pad_size = (etpad_dimensionwidthfoot.getText().toString()+" feet " + etpad_dimensionwidthinch.getText().toString() +" inches"+ " by "+ etpad_dimensionlengthfoot.getText().toString()+" feet " + etpad_dimensionlengthinch.getText().toString()+" inches" );
-                                             String elbows = (etelbowwidth.getText().toString() + "inches by " + etelbowheight.getText().toString() + " inches");
-
+                                             //     EditText etpad_dimensionwidthfoot,etpad_dimensionwidthinch,etpad_dimensionlengthinch,etpad_dimensionlengthfoot;
+                                             String pad_size = (etpad_dimensionwidthfoot.getText().toString() + " feet " + etpad_dimensionwidthinch.getText().toString() + " inches" + " by " + etpad_dimensionlengthfoot.getText().toString() + " feet " + etpad_dimensionlengthinch.getText().toString() + " inches");
+                                             String elbows = (etelbowwidth.getText().toString() + " inches by " + etelbowheight.getText().toString() + " inches");
+                                             String size_return_grill = (etsize_return_grill.getText().toString() + " inches by " + etsize_return_grill_width.getText().toString());
+                                             // String field_service_name = "Wacky jack package";
+                                             filter_location += etfilter_location.getText().toString();
+                                             String field_service_name = PreferenceManager.getDefaultSharedPreferences(context).getString("MYNAME", "Tablet user has not entered name.");
 
                                              PostDataTask postDataTask = new PostDataTask();
+                                             if (etname.getText().toString().equals("") || etaddress.getText().toString().equals("") || etphone.getText().toString().equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please fill out name, address,and phone.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (gas_elect.equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please select H.P. or gas/electric.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (ground_roof.equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please select if its a ground or roof unit.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (ground_roof.equals("Ground Unit")) {
+                                                 if (etpad_dimensionwidthfoot.getText().toString().equals("") || etpad_dimensionlengthfoot.equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please fill out the pad size.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
 
+                                                 }
+                                                 if (etfittingtype.getText().toString().equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please fill out fitting type.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+
+                                                 }
+
+                                                 if (roomtoexpand.equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please choose if there is room to expand.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+                                                 }
+
+
+                                                 if (roomtoexpand.equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please choose if there is room to expand.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+
+                                                 }
+                                                 if (etbtu.getText().toString().equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please choose BTUs.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+
+                                                 }
+
+                                                 if (tons.equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please choose the unit's tonnage.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+
+                                                 }
+                                             }
+                                             if (ground_roof.equals("Roof Unit")) {
+                                                 if (etrooftype.getText().toString().equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please select a roof type.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+                                                 }
+                                                 if (etrooftype.getText().toString().equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please select a roof type.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+                                                 }
+                                                 if (etstand_size.getText().toString().equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please enter a stand size.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+                                                 }
+
+                                                 if (etelbowwidth.getText().toString().equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please enter elbow height.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+                                                 }
+
+                                                 if (etdownshot.getText().toString().equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please enter down shot.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+                                                 }
+                                                 if (etpitch.getText().toString().equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please enter pitch of roof.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+                                                 }
+                                                 if (tons.equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please enter tons.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+                                                 }
+                                                 if (etbtu.getText().toString().equals("")) {
+                                                     Toast toast = Toast.makeText(context, "Please enter btu's.", Toast.LENGTH_LONG);
+                                                     //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                     toast.show();
+                                                     return;
+
+                                                 }
+                                             }
 
                                              postDataTask.execute(URL,
-                                                     etname.getText().toString(),//1
-                                                     etaddress.getText().toString(),//2
-                                                     etphone.getText().toString(),//3
-                                                     etemail.getText().toString(), //4 email
+                                                     etname.getText().
+
+                                                             toString(),//1
+
+                                                     etaddress.getText().
+
+                                                             toString(),//2
+
+                                                     etphone.getText().
+
+                                                             toString(),//3
+
+                                                     etemail.getText().
+
+                                                             toString(), //4 email
+
                                                      gas_elect,//5 gas_or_elect
                                                      natural_propane, //6 natural or propane
                                                      nothing, //7. mobile_home
                                                      nothing,  //     8. indoor_outdoor_furnace
                                                      ground_roof,  //     9. ground
                                                      pad_size,  //     10. pad_size
-                                                     etfittingtype.getText().toString(),//     11. type_of_fittings
+                                                     etfittingtype.getText().
+
+                                                             toString(),//     11. type_of_fittings
+
                                                      roomtoexpand, //     12. room_to_expand
                                                      tons,    // 13. roof_tonnage
                                                      nothing, //     14. roof
-                                                     etrooftype.getText().toString(),  //     15. type_of_roof
-                                                     etstand_size.getText().toString(),  //     16. stand_size
+                                                     etrooftype.getText().
+
+                                                             toString(),  //     15. type_of_roof
+
+                                                     etstand_size.getText().
+
+                                                             toString(),  //     16. stand_size
+
                                                      elbows,   //     17. elbows
-                                                     etdownshot.getText().toString(),  //     18. down_shot
-                                                     etpitch.getText().toString(),  //     19. pitch_of_roof
+                                                     etdownshot.getText().
+
+                                                             toString(),  //     18. down_shot
+
+                                                     etpitch.getText().
+
+                                                             toString(),  //     19. pitch_of_roof
+
                                                      nothing,  //     20. tonage_roof
-                                                     etbtu.getText().toString(), //     21. btu_roof
+                                                     etbtu.getText().
+
+                                                             toString(), //     21. btu_roof
+
                                                      nothing,  //     22. Existing_Condenser_apporx_length
                                                      ducttype,  //     23. duct_system_type
-                                                     etsize_return_duct.getText().toString(), //     24. duct_system_size_of_return_duct
-                                                     etsize_return_grill.getText().toString(),  //     25. duct_system_size_of_return_grill
-                                                     etfilter_location.getText().toString(), //     26. duct_system_location_of_filter
-                                                     etsuplly_vent_no.getText().toString(), //     27. duct_system_num_of_supply_vent
-                                                     etload_calcs.getText().toString(), //     28. duct_system_Load_Calcs_Needed
+                                                     etsize_return_duct.getText().
+
+                                                             toString(), //     24. duct_system_size_of_return_duct
+
+                                                     etsize_return_grill.getText().
+
+                                                             toString(),  //     25. duct_system_size_of_return_grill
+
+                                                     filter_location,//etfilter_location.getText().toString(), // etfilter_location.getText().toString(), //     26. duct_system_location_of_filter
+                                                     etsuplly_vent_no.getText().
+
+                                                             toString(), //     27. duct_system_num_of_supply_vent
+
+                                                     loadCalcs,// etload_calcs.getText().toString(), //     28. duct_system_Load_Calcs_Needed
                                                      nothing, //     29. duct_system_Interested_in_test_and_seal
-                                                     etmeasured_return_air.getText().toString(),  //     30. duct_system_total_meausered_return_air
+                                                     (etmeasured_return_air.getText().
+
+                                                             toString()
+
+                                                             + " CFM"),  //     30. duct_system_total_meausered_return_air
                                                      problemrooms,  //     31. system_performance_problem_rooms
                                                      temp,  //   32. system_performance_maintains_temp
                                                      bills,  //33. system_performance_high_bills
                                                      noisy,   //34. system_performance_noisy
                                                      cycles,  //35. system_performance_cycles_freq
                                                      thermostat,  //36. system_performance_change_thermostat
-                                                     etother_problems.getText().toString()  //37. other_problems_or_notes
-
+                                                     etother_problems.getText().toString(),//37. other_problems_or_notes
+                                                     field_service_name,
+                                                     etpricetoreplace.getText().toString(),
+                                                     quality
                                              );
                                          }
                                      }
@@ -565,6 +803,9 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
             String system_performance_cycles_freq = formData[35];
             String system_performance_change_thermostat = formData[36];
             String other_problems_or_notes = formData[37];
+            String field_service_name = formData[38];
+            String price_to_replace = formData[39];
+            String system_quality = formData[40];
             String postBody = "";
             try {
                 //all values must be URL encoded to make sure that special characters like & | ",etc.
@@ -606,7 +847,12 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
                         "&" + system_performance_noisy_key + "=" + URLEncoder.encode(system_performance_noisy, "UTF-8") +
                         "&" + system_performance_cycles_freq_key + "=" + URLEncoder.encode(system_performance_cycles_freq, "UTF-8") +
                         "&" + system_performance_change_thermostat_key + "=" + URLEncoder.encode(system_performance_change_thermostat, "UTF-8") +
-                        "&" + other_problems_or_notes_key + "=" + URLEncoder.encode(other_problems_or_notes, "UTF-8")
+                        "&" + other_problems_or_notes_key + "=" + URLEncoder.encode(other_problems_or_notes, "UTF-8") +
+                        "&" + field_service_name_key + "=" + URLEncoder.encode(field_service_name, "UTF-8") +
+                        "&" + price_to_replace_key + "=" + URLEncoder.encode(price_to_replace, "UTF-8") +
+                        "&" + system_quality_key + "=" + URLEncoder.encode(system_quality, "UTF-8");
+
+
                 ;
                 result = true;
             } catch (UnsupportedEncodingException e) {

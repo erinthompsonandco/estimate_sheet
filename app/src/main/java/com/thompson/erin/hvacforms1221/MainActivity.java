@@ -3,14 +3,17 @@ package com.thompson.erin.hvacforms1221;
 //https://spreadsheets.google.com/feeds/list/1NsLyf2hMBLTNd3FYeSieKh0c9swbcecVY_Zt8PIrGKk/1/public/basic?alt=json
 //eh... https://script.googleusercontent.com/macros/echo?user_content_key=v3yZrgMAtB0GLJx8M3A736XQqVkdqqTNBGKKzqk3WO82GPim6amB_Nz_kTzjrptvc509rfdUMOczSL5uNhUlj47UmR0xEK5HOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHa1GhPSVukpSQTydEwAEXFXgt_wltjJcH3XHUaaPC1fv5o9XyvOto09QuWI89K6KjOu0SP2F-BdwUfITFEal7vlYLCKKFIXKdGJ2fncv87P0TrthvdHv12d9Ejiz3MT4-nlhQpCAXCpBZ&lib=MnrE7b2I2PjfH799VodkCPiQjIVyBAxva
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView tvuserid = (TextView) findViewById(R.id.tvuserid);
+        Activity context = this;
+        tvuserid.setText("Hello, " + PreferenceManager.getDefaultSharedPreferences(context).getString("MYNAME", "Please enter name in options menu."));
+        //tvuserid.setBackgroundResource(R.color.grayseperate);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Button btnOptions = (Button) findViewById(R.id.btnOptions);

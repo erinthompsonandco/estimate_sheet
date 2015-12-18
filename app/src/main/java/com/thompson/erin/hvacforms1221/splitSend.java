@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.Gravity;
@@ -31,7 +32,7 @@ import java.net.URLEncoder;
  * This should get data from out text fields and send it to our online database.
  */
 public class splitSend extends AppCompatActivity {
-
+    String filter_location = "";
     public static final MediaType FORM_DATA_TYPE
             = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
     //If you change your URL You'll have to change all entries. just so you know
@@ -81,6 +82,9 @@ public class splitSend extends AppCompatActivity {
     public static final String other_problems_key = "entry.1353810658";
     public static final String mobile_home_key = "entry.579179967";
     public static final String noData = " ";
+    public static final String field_service_name_key = "entry.2132509586";
+    public static final String price_to_replace_key = "entry.1599723316";
+    public static final String system_quality_key = "entry.1578349274";
     String disconnect = " ";
     String mobile = " ";
     String line_set_size = " ";
@@ -130,7 +134,6 @@ public class splitSend extends AppCompatActivity {
     TextView tvamps, tvindooroutdoorfurnace;
     EditText etdoor_dimensionwidth, approx_dimensionlengthinch, approx_dimensionlengthfoot;
     EditText etpad_dimensionwidthfoot, etpad_dimensionwidthinch, etpad_dimensionlengthinch, etpad_dimensionlengthfoot;
-
     //EditText etcloset_dimensionlength, etcloset_dimensiondepth;
     //EditText etclosetHeightFoot, etclosetWidthFoot
     //TextView tvpadHeightFoot, tvpadHeightInch, tvpadWidthInch, tvpadWidthFoot;
@@ -144,6 +147,7 @@ public class splitSend extends AppCompatActivity {
 
 
     //declare our edittexts
+    String loadCalcs = "";
 
     private EditText etname, etemail;
     private EditText etaddress;
@@ -171,6 +175,7 @@ public class splitSend extends AppCompatActivity {
     private EditText etinterested_test_seal;
     private EditText etload_calcs;
     private EditText etmeasured_return_air;
+
     /*
     private EditText etsystem_performance;
     private EditText etproblem_rooms;
@@ -186,7 +191,7 @@ public class splitSend extends AppCompatActivity {
 
     private EditText etcloset_dimension_width;
     private EditText etcloset_dimension_length;
-
+    private EditText etsize_return_grill_width;
 
     private EditText etfurnace_dimension_width;
     private EditText etfurnace_dimension_length;
@@ -204,10 +209,10 @@ public class splitSend extends AppCompatActivity {
     RadioButton rbcombventsno, rbcombventsyes, rbdisconnectyes, rbdisconnectno, rbmobilehomeyes, rbmobilehomeno;
     RadioButton rbfloor_conditionyes, rbfloor_conditionno;
     RadioButton rbcondensate_drain_conditionyes, rbcondensate_drain_conditionno, rbducttype;
-    RadioButton rbampsthirty, rbampssixty, rbindooroutdoorfurnaceout, rbindooroutdoorfurnacein, rbopt3, rbopt2, rbopt1, rblinesetsuction, rblinesetliquid, rbopt4;
+    RadioButton rbampsthirty, rbampssixty, rbindooroutdoorfurnaceout, rbindooroutdoorfurnacein, rbopt3, rbopt2, rbopt1, rblinesetsuction, rblinesetliquid, rbopt4, rbloadcalcsyes;
     RadioGroup rgcombvents, rgfloor_condition, rgcondensate_drain_condition, rgducttype, rgliqsuct, rglineset;
-    RadioGroup rgdisconnect, rgamps, rgindooroutdoorfurnace, rgmobilehome, rgtons;
-    RadioButton rbtons2, rbtons2_5, rbtons3, rbtons3_5, rbtons4, rbtons5;
+    RadioGroup rgdisconnect, rgamps, rgindooroutdoorfurnace, rgmobilehome, rgtons, rgquality;
+    RadioButton rbtons2, rbtons2_5, rbtons3, rbtons3_5, rbtons4, rbtons5, rbbasic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -224,15 +229,38 @@ public class splitSend extends AppCompatActivity {
 
         //Get references to UI elements in the layout
         View extra_view = findViewById(R.id.extra_layout);
-        View user_information = findViewById(R.id.user_information_layout);
+
+        final View user_information = findViewById(R.id.user_information_layout);
+        final EditText etpricetoreplace = (EditText) user_information.findViewById(R.id.etpricetoreplace);
+
+        TextView tvnameuserinfo = (TextView) user_information.findViewById(R.id.tvnameuserinfo);
+        tvnameuserinfo.setBackgroundResource(R.color.grayseperate);
+        TextView tvexisting_furnace = (TextView) findViewById(R.id.tvexisting_furnace);
+        TextView tvexisting_condensor = (TextView) findViewById(R.id.tvexisting_condensor);
+        tvexisting_condensor.setBackgroundResource(R.color.grayseperate);
+        tvexisting_furnace.setBackgroundResource(R.color.grayseperate);
+        TextView tvother_problems = (TextView) extra_view.findViewById(R.id.tvother_problems);
+        tvother_problems.setBackgroundResource(R.color.grayseperate);
+        TextView tvsystem_performance = (TextView) extra_view.findViewById(R.id.tvsystem_performance);
+        tvsystem_performance.setBackgroundResource(R.color.grayseperate);
+        TextView tvduct_system = (TextView) findViewById(R.id.tvduct_system);
+        tvduct_system.setBackgroundResource(R.color.grayseperate);
+
+        final RadioGroup rgfilterlocation = (RadioGroup) extra_view.findViewById(R.id.rgfilterlocation);
+        final RadioButton rbfilterlocationinside = (RadioButton) extra_view.findViewById(R.id.rbfilterlocationinside);
+        final RadioButton rbfilterlocationgrill = (RadioButton) extra_view.findViewById(R.id.rbfilterlocationgrill);
+        final RadioButton rbfilterlocationother = (RadioButton) extra_view.findViewById(R.id.rbfilterlocationother);
+        TextView tvfilter_location = (TextView) extra_view.findViewById(R.id.tvfilter_location);
+        final RadioGroup rgloadcalcs;
+        //  RadioButton rbloadcalcsyes, rbloadcalcsno;
 
 
         Button btnSubmit = (Button) extra_view.findViewById(R.id.btnSubmit);
 
-
         approx_dimensionlengthinch = (EditText) findViewById(R.id.approx_dimensionlengthinch);
         approx_dimensionlengthfoot = (EditText) findViewById(R.id.approx_dimensionlengthfoot);
-        etother_problems = (EditText) findViewById(R.id.etOther);
+        etother_problems = (EditText) findViewById(R.id.etother_problems);
+
         etname = (EditText) user_information.findViewById(R.id.etname);
         etaddress = (EditText) user_information.findViewById(R.id.etaddress);
         etphone = (EditText) user_information.findViewById(R.id.etphone);
@@ -276,6 +304,9 @@ public class splitSend extends AppCompatActivity {
         rbtons4 = (RadioButton) findViewById(R.id.rbtons2);
         rbtons5 = (RadioButton) findViewById(R.id.rbtons5);
 
+        rgquality = (RadioGroup) user_information.findViewById(R.id.rgquality);
+        rbbasic = (RadioButton) user_information.findViewById(R.id.rbbasic);
+
 
         rbmobilehomeyes = (RadioButton) findViewById(R.id.rbmobilehomeyes);
         rbmobilehomeno = (RadioButton) findViewById(R.id.rbmobilehomeno);
@@ -309,87 +340,26 @@ public class splitSend extends AppCompatActivity {
         rblinesetsuction = (RadioButton) findViewById(R.id.rblinesetsuction);
         rblinesetliquid = (RadioButton) findViewById(R.id.rblinesetliquid);
 
+
+        rgloadcalcs = (RadioGroup) extra_view.findViewById(R.id.rgloadcalcs);
+        //rbloadcalcsyes = (RadioButton) extra_view.findViewById(R.id.rbloadcalcsyes);
+        // rbloadcalcsno = (RadioButton) extra_view.findViewById(R.id.rbloadcalcsno);
+
+
         rgcondensate_drain_condition = (RadioGroup) findViewById(R.id.rgcondensate_drain);
         rgdisconnect = (RadioGroup) findViewById(R.id.rgdisconnect);
         rgliqsuct = (RadioGroup) findViewById(R.id.rgliqsuct);
         rglineset = (RadioGroup) findViewById(R.id.rglineset);
 
+        etfilter_location = (EditText) extra_view.findViewById(R.id.etfilter_location);
+
+        etfilter_location.setVisibility(View.GONE);
         //tvdoorwidthfoot
 
         //setting the values so user can see where ft. and in. will go after they pick a number..
         final String foot = " ft.";
         final String inches = " in.";
 
-      //  tvapprox_lengthFoot.setText(foot);
-   /*     tvpadHeightFoot.setText(foot);
-        tvpadWidthFoot.setText(foot);*/
-
-        //tvapprox_lengthInch.setText(inches);
-/*        tvpadHeightInch.setText(inches);
-        tvpadWidthInch.setText(inches);*/
-
-        //Iniditalize our Numberpickers
-
-
-      /*  nppadHeightFoot = (NumberPicker) findViewById(R.id.nppadHeightFoot);
-        nppadHeightInch = (NumberPicker) findViewById(R.id.nppadHeightInch);
-*/
-     /*   nppadWidthFoot = (NumberPicker) findViewById(R.id.nppadWidthFoot);
-        nppadWidthInch = (NumberPicker) findViewById(R.id.nppadWidthInch);
-*/
-
-
-/*
-
-        npdoorwidthfoot = (NumberPicker) findViewById(R.id.npdoorwidthfoot);
-        npdoorwidthinch = (NumberPicker) findViewById(R.id.npdoorwidthinch);
-
-        npdoorwidthfoot.setMaxValue(9);
-        npdoorwidthfoot.setMinValue(0);
-
-        npdoorwidthinch.setMaxValue(11);
-        npdoorwidthinch.setMinValue(0);*/
-
-
-        ///////////////
-        /*
-        npclosetHeightFoot.setMaxValue(99);
-        npclosetHeightFoot.setMinValue(0);
-
-        npclosetWidthInch.setMaxValue(11);
-        npclosetWidthInch.setMinValue(0);
-
-        npclosetWidthFoot.setMaxValue(99);
-        npclosetWidthFoot.setMinValue(0);
-
-        npclosetHeightInch.setMaxValue(11);
-        npclosetHeightInch.setMinValue(0);
-           */
-
-  /*      nppadHeightInch.setMaxValue(99);
-        nppadHeightInch.setMinValue(0);
-
-        nppadWidthFoot.setMaxValue(99);
-        nppadWidthFoot.setMinValue(0);
-
-        nppadHeightFoot.setMaxValue(99);
-        nppadHeightFoot.setMinValue(0);
-
-        nppadWidthInch.setMaxValue(11);
-        nppadWidthInch.setMinValue(0);*/
-        ////////////////
-
-
-
-
-        /*
-        //The below crashes the app, so screw it for now.
-
-        npFurnaceHeightFoot.setWrapSelectorWheel(false);
-        npFurnaceHeightInch.setWrapSelectorWheel(false);
-        npFurnaceWidthFoot.setWrapSelectorWheel(false);
-        npFurnaceWidthInch.setWrapSelectorWheel(false);
-*/
         etcloset_dimension_length = (EditText) findViewById(R.id.etcloset_dimensionlength);
         etcloset_dimension_width = (EditText) findViewById(R.id.etcloset_dimensionwidth);
 
@@ -417,10 +387,11 @@ public class splitSend extends AppCompatActivity {
 
         etsize_return_duct = (EditText) extra_view.findViewById(R.id.etsize_return_duct);
         etsize_return_grill = (EditText) extra_view.findViewById(R.id.etsize_return_grill);
+        etsize_return_grill_width = (EditText) extra_view.findViewById(R.id.etsize_return_grill_width);
         etfilter_location = (EditText) extra_view.findViewById(R.id.etfilter_location);
         etsuplly_vent_no = (EditText) extra_view.findViewById(R.id.etsuplly_vent_no);
-       // etinterested_test_seal = (EditText) extra_view.findViewById(R.id.etinterested_test_seal);
-        etload_calcs = (EditText) extra_view.findViewById(R.id.etload_calcs);
+        // etinterested_test_seal = (EditText) extra_view.findViewById(R.id.etinterested_test_seal);
+        // etload_calcs = (EditText) extra_view.findViewById(R.id.etload_calcs);
         etmeasured_return_air = (EditText) extra_view.findViewById(R.id.etmeasured_return_air);
         etother_problems = (EditText) extra_view.findViewById(R.id.etother_problems);
         // initiazlize chckboxes
@@ -430,92 +401,7 @@ public class splitSend extends AppCompatActivity {
         cbnoisy = (CheckBox) extra_view.findViewById(R.id.cbnoisy);
         cbcycles = (CheckBox) extra_view.findViewById(R.id.cbcycles_freq);
         cbthermostat = (CheckBox) extra_view.findViewById(R.id.cbthermostat);
-//TO update what you pass to the database, you have to add the xml entity, then get the string
-        // from the user's input, then update the arraylist, then encode the string with its key
-        // corresponspdonging to the correct box in the http form.
-        //what a giant onclick-mess. :[
 
-
-     /*   npdoorwidthfoot.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String inner_foot3 = npdoorwidthfoot.getValue() + foot;
-                tvdoorwidthfoot.setText(inner_foot3);
-            }
-        });
-        npdoorwidthinch.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String inner_inch4 = npdoorwidthinch.getValue() + inches;
-                tvdoorwidthinch.setText(inner_inch4);
-            }
-        });
-*/
-        ////////////////////////////////
-//        npclosetHeightFoot.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-//            @Override
-//            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-//                String inner_foot2 = npclosetHeightFoot.getValue() + foot;
-//                tvclosetHeightFoot.setText(inner_foot2);
-//            }
-//        });
-//        npclosetHeightInch.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-//            @Override
-//            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-//                String inner_inch2 = npclosetHeightInch.getValue() + inches;
-//                tvclosetHeightInch.setText(inner_inch2);
-//
-//            }
-//        });
-//        npclosetWidthFoot.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-//            @Override
-//            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-//                String inner_foot1 = npclosetWidthFoot.getValue() + foot;
-//                tvclosetWidthFoot.setText(inner_foot1);
-//
-//            }
-//        });
-//        npclosetWidthInch.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-//            @Override
-//            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-//                String inner_inch1 = npclosetWidthInch.getValue() + inches;
-//                tvclosetWidthInch.setText(inner_inch1);
-//
-//            }
-//        });
-
-
-    /*    //////////////////////////////////
-        nppadHeightFoot.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String inner_foot2 = nppadHeightFoot.getValue() + foot;
-                tvpadHeightFoot.setText(inner_foot2);
-            }
-        });
-        nppadHeightInch.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String inner_inch2 = nppadHeightInch.getValue() + inches;
-                tvpadHeightInch.setText(inner_inch2);
-
-            }
-        });
-        nppadWidthFoot.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String inner_foot1 = nppadWidthFoot.getValue() + foot;
-                tvpadWidthFoot.setText(inner_foot1);
-            }
-        });
-        nppadWidthInch.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                String inner_inch1 = nppadWidthInch.getValue() + inches;
-                tvpadWidthInch.setText(inner_inch1);
-
-            }
-        });*/
         tvamps.setVisibility(View.GONE);
         rbampsthirty.setVisibility(View.GONE);
         rbampssixty.setVisibility(View.GONE);
@@ -525,6 +411,23 @@ public class splitSend extends AppCompatActivity {
         rbopt2.setVisibility(View.GONE);
         rbopt1.setVisibility(View.GONE);
 
+        rgfilterlocation.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (rbfilterlocationgrill.getId() == checkedId) {
+                    etfilter_location.setVisibility(View.GONE);
+                    filter_location = rbfilterlocationgrill.getText().toString();
+                }
+                if (rbfilterlocationinside.getId() == checkedId) {
+                    etfilter_location.setVisibility(View.GONE);
+                    filter_location = rbfilterlocationinside.getText().toString();
+                }
+                if (rbfilterlocationother.getId() == checkedId) {
+                    filter_location = "other";
+                    etfilter_location.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         rbindooroutdoorfurnaceout.setVisibility(View.GONE);
         rbindooroutdoorfurnacein.setVisibility(View.GONE);
@@ -533,7 +436,6 @@ public class splitSend extends AppCompatActivity {
         rblinesetliquid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View w) {
-
                 if (rblinesetliquid.isPressed()) {
                     // rgamps.setVisibility(View.VISIBLE);
                     line_set_size = "Liquid Line";
@@ -548,6 +450,8 @@ public class splitSend extends AppCompatActivity {
                 }
             }
         });
+
+
         rblinesetsuction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View w) {
@@ -658,8 +562,20 @@ int radioButtonID = radioButtonGroup.getCheckedRadioButtonId();
 View radioButton = radioButtonGroup.findViewById(radioButtonID);
 int idx = radioButtonGroup.indexOfChild(radioButton);
 */
+
+
                                              String line_set_size1;
                                              // rgliqsuct
+
+
+                                             //rgloadcalcs = (RadioGroup) extra_view.findViewById(R.id.rgloadcalcs);
+                                             int selectedIdloadcalc = rgloadcalcs.getCheckedRadioButtonId();
+                                             if (selectedIdloadcalc != -1) {
+                                                 rbloadcalcsyes = (RadioButton) findViewById(selectedIdloadcalc);
+                                                 loadCalcs = rbloadcalcsyes.getText().toString();
+                                             }
+
+
                                              rgliqsuct = (RadioGroup) findViewById(R.id.rgliqsuct);
                                              int selectedIdrgliqsuct = rgliqsuct.getCheckedRadioButtonId();
                                              if (selectedIdrgliqsuct != -1) {
@@ -668,6 +584,15 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
                                                  line_set_size += " " + line_set_size1;
                                              }
 
+                                             String quality = "";
+                                             rgquality = (RadioGroup) user_information.findViewById(R.id.rgquality);
+                                             int selectedIdquality = rgquality.getCheckedRadioButtonId();
+                                             if (selectedIdquality != -1) {
+                                                 rbbasic = (RadioButton) findViewById(selectedIdquality);
+                                                 String myquality = rbbasic.getText().toString();
+                                                 quality += myquality;
+                                             }
+                                             /*return here*/
 
                                              rgtons = (RadioGroup) findViewById(R.id.rgtons);
                                              int selectedIdtons = rgtons.getCheckedRadioButtonId();
@@ -759,19 +684,157 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
                                              if (cbthermostat.isChecked()) {
                                                  thermostat += "Thermostat";
                                              }
-                                             String closet_dimension = (etcloset_dimension_length.getText().toString() + " by " + etcloset_dimension_width.getText().toString());
+                                             filter_location += etfilter_location.getText().toString();
+
                                              String furnace_dimension = (etfurnace_dimension_length.getText().toString() + " by " + etfurnace_dimension_width.getText().toString());
+
+
                                              String door_width = ((etdoor_dimensionwidth.getText().toString()) + " inches");
+
+
+                                             String closet_dimension = (etcloset_dimension_length.getText().toString() + " by " + etcloset_dimension_width.getText().toString());
+
+
                                              String approx_length = (approx_dimensionlengthfoot.getText().toString() + " by " + approx_dimensionlengthinch.getText().toString());
                                              //     ,,etpad_dimensionlengthinch,etpad_dimensionlengthfoot;
 
                                              String pad_size = (etpad_dimensionwidthfoot.getText().toString() + etpad_dimensionwidthinch.getText().toString() + " x " + etpad_dimensionlengthinch.getText().toString() + etpad_dimensionlengthfoot.getText().toString());
-                                             String flu_pipe_type_size = (etflu_pipe_type.getText().toString() +"size "+ etflu_pipe_size.getText().toString()) + " inches";
+
+                                             String flu_pipe_type_size = (etflu_pipe_type.getText().toString() + "size " + etflu_pipe_size.getText().toString()) + " inches";
                                              ////  11/24/2015 get this id from other code/other activity and make sure
                                              //that it can stay saved inside app long-term.
-
+                                             String size_return_grill = (etsize_return_grill.getText().toString() + " inches by " + etsize_return_grill_width.getText().toString());
                                              PostDataTask postDataTask = new PostDataTask();
+                                             if (etname.getText().toString().equals("") || etaddress.getText().toString().equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please fill out name and address.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (furnace_dimension.equals(" by ")) {
+                                                 Toast toast = Toast.makeText(context, "Please fill out furnace dimensions.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (etkbtu.getText().toString().equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please fill out BTU's for the existing furnace.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (etup_flow.getText().toString().equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please fill out Up Flow for the existing furnace.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
 
+                                             if (etdown_flow.getText().toString().equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please fill out Down Flow for the existing furnace.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+
+
+                                             if (closet_dimension.equals(" by ")) {
+                                                 Toast toast = Toast.makeText(context, "Please fill out closet dimensions.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+
+                                             if (door_width.equals(" inches")) {
+                                                 Toast toast = Toast.makeText(context, "Please fill the door width.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (tons.equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please select a tonnage value.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (etplatform_return_air.getText().toString().equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please fill out the platform return air.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (etflu_pipe_type.getText().toString().equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please fill in flu pipe type.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (combvents.equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please make a selection for comb vents.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+
+
+                                             if (floor_condition.equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please make a selection for floor condition", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+
+                                             }
+                                             if (condensate_drain_condition.equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please make a selection for condensate drain.", Toast.LENGTH_LONG);
+                                                 //  toast.makeText(context, "Message successfully sent!", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+
+                                             }
+                                             if (pad_size.equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please make a selection for pad size.", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (etbreaker.getText().toString().equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please make a selection for breaker.", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (disconnect.equals(" ")) {
+                                                 Toast toast = Toast.makeText(context, "Please make a selection for disconnect.", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (line_set_size.equals("")) {
+                                                 Toast toast = Toast.makeText(context, "Please make a selection for line set size.", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             if (approx_length.equals(" by ")) {
+                                                 Toast toast = Toast.makeText(context, "Please make a selection for approx length.", Toast.LENGTH_LONG);
+                                                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                                 toast.show();
+                                                 return;
+                                             }
+                                             String field_service_name = PreferenceManager.getDefaultSharedPreferences(context).getString("MYNAME", "Tablet user has not entered name.");
 
                                              postDataTask.execute(URL,
                                                      etname.getText().toString(),//1
@@ -781,11 +844,7 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
                                                      etup_flow.getText().toString(),//5
                                                      etdown_flow.getText().toString(),//6
                                                      furnace_dimension,//7
-                                                     //  etfurnace_dimension_height.getText().toString(),
-                                                     // etfurnace_dimension_width.getText().toString(),
                                                      closet_dimension,//8
-                                                     // etcloset_dimension_height.getText().toString(),
-                                                     // etcloset_dimension_width.getText().toString(),
                                                      door_width,//9
                                                      etplatform_return_air.getText().toString(),//10
                                                      flu_pipe_type_size,//11
@@ -796,17 +855,20 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
                                                      tons,//15
                                                      pad_size,//16
                                                      etbreaker.getText().toString(),//17
+
                                                      disconnect,//18
                                                      line_set_size,//etline_set_size.getText().toString(),//19
                                                      approx_length, //20
                                                      ducttype, //21                                                                                                //21
                                                      etsize_return_duct.getText().toString(),//22
-                                                     etsize_return_grill.getText().toString(),//23
-                                                     etfilter_location.getText().toString(),//24
+
+                                                     size_return_grill,//etsize_return_grill.getText().toString(),//23
+                                                     filter_location,// etfilter_location.getText().toString(),//24
                                                      etsuplly_vent_no.getText().toString(),//25
+
                                                      noData,// etinterested_test_seal.getText().toString(),//26
-                                                     etload_calcs.getText().toString(),//27
-                                                     etmeasured_return_air.getText().toString(),//28
+                                                     loadCalcs,// etload_calcs.getText().toString(),//27
+                                                     (etmeasured_return_air.getText().toString() + " CFM"),//28
                                                      //   etsystem_performance.getText().toString(),
                                                      problemrooms,//29
                                                      temp,//30
@@ -816,10 +878,15 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
                                                      thermostat,//34
                                                      etother_problems.getText().toString(),//35
                                                      mobile,
-                                                     noData//36
+                                                     noData,//36
+                                                     field_service_name, // User id.
+                                                     etpricetoreplace.getText().toString(),
+                                                     quality
+
                                              );
                                          }
                                      }
+
         );
     }
 
@@ -828,6 +895,7 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
 
         @Override
         protected Boolean doInBackground(String... formData) {
+            //   if(formData){}
             Boolean result = true;
             String url = formData[0];
             String etname = formData[1];
@@ -870,6 +938,9 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
             String etother_problems = formData[35];
             String nothing = formData[36];
             String mobile_in = formData[37];
+            String field_service_name = formData[38];
+            String pricetoreplace = formData[39];
+            String system_quality = formData[40];
             String postBody = "";
             try {
                 //all values must be URL encoded to make sure that special characters like & | ",etc.
@@ -912,7 +983,12 @@ int idx = radioButtonGroup.indexOfChild(radioButton);
                         "&" + cycles_freq_key + "=" + URLEncoder.encode(cycles, "UTF-8") +
                         "&" + thermostat_key + "=" + URLEncoder.encode(thermostat, "UTF-8") +
                         "&" + other_problems_key + "=" + URLEncoder.encode(etother_problems, "UTF-8") +
-                        "&" + mobile_home_key + "=" + URLEncoder.encode(mobile_in, "UTF-8");
+                        "&" + mobile_home_key + "=" + URLEncoder.encode(mobile_in, "UTF-8") +
+                        "&" + field_service_name_key + "=" + URLEncoder.encode(field_service_name, "UTF-8") +
+                        "&" + price_to_replace_key + "=" + URLEncoder.encode(pricetoreplace, "UTF-8") +
+                        "&" + system_quality_key + "=" + URLEncoder.encode(system_quality, "UTF-8");
+
+
                 result = true;
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();

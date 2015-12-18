@@ -8,38 +8,33 @@
 
     <TextView
         android:id="@+id/tvroof"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Roof Unit"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32sp" />
-    <TextView
-        android:id="@+id/tvnameuserinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Roof Unit"
         android:layout_marginBottom="15sp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/grayseperate"
+        android:text="Roof Unit"
         android:textAppearance="?android:attr/textAppearanceLarge"
-
-        android:textSize="32sp" />
-
+        android:textSize="24sp" />
     <TextView
         android:id="@+id/tvroof_type"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/roof_type"
+
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32sp" />
+        android:textColor="@color/gray"
+
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/etrooftype"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:textSize="26sp" />
+        android:textColor="@color/gray"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tvstand_size"
@@ -48,7 +43,9 @@
         android:layout_weight="1"
         android:text="@string/stand_size"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32sp" />
+        android:textColor="@color/gray"
+
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/etstand_size"
@@ -56,7 +53,7 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:textColor="@color/gray"
-        android:textSize="26sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tvelbows"
@@ -65,7 +62,8 @@
         android:layout_weight="1"
         android:text="@string/elbows"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32sp" />
+        android:textColor="@color/gray"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -77,42 +75,40 @@
             android:id="@+id/etelbowheight"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".2"
+            android:layout_weight=".25"
             android:hint="@string/elbowheighthint"
             android:inputType="numberDecimal"
             android:textColor="@color/gray"
-            android:textSize="32sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvinches"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".2"
-            android:text="@string/inchesby"
-            android:textSize="32sp" />
+            android:layout_weight=".25"
+            android:text=" in. By "
+            android:textColor="@color/gray"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/etelbowwidth"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".2"
+            android:layout_weight=".25"
             android:hint="@string/width"
             android:inputType="numberDecimal"
             android:textColor="@color/gray"
-            android:textSize="26sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvinches1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".2"
-            android:text="@string/inches"
-            android:textSize="32sp" />
+            android:layout_weight=".25"
+            android:text="in."
+            android:textColor="@color/gray"
+            android:textSize="20sp" />
 
-        <Space
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight=".2" />
 
     </LinearLayout>
 
@@ -124,7 +120,8 @@
         android:layout_weight="1"
         android:text="@string/downshot"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32sp" />
+        android:textColor="@color/gray"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/etdownshot"
@@ -133,7 +130,7 @@
         android:layout_weight="1"
         android:inputType="text"
         android:textColor="@color/gray"
-        android:textSize="26sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/tvpitch"
@@ -142,7 +139,8 @@
         android:layout_weight="1"
         android:text="@string/pitch"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32sp" />
+        android:textColor="@color/gray"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/etpitch"
@@ -151,6 +149,6 @@
         android:layout_weight="1"
         android:inputType="text"
         android:textColor="@color/gray"
-        android:textSize="26sp" />
+        android:textSize="20sp" />
 
 </LinearLayout>

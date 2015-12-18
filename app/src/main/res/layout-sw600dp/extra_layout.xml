@@ -6,24 +6,24 @@
 
 
     <TextView
-        android:textSize="32sp"
         android:id="@+id/tvduct_system"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp"
         android:layout_weight="1"
         android:text="Duct System"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
     <TextView
-        android:textSize="32sp"
         android:id="@+id/tvduct_type"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Type of Duct"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
     <RadioGroup
         android:id="@+id/rgducttype"
@@ -33,52 +33,52 @@
         android:layout_weight="1">
 
         <RadioButton
-            android:textSize="28sp"
             android:id="@+id/rbducttypeflex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Flex Duct"
-            android:textColor="@color/gray" />
+            android:textColor="@color/gray"
+            android:textSize="28sp" />
 
 
         <RadioButton
-            android:textSize="28sp"
             android:id="@+id/rbducttypemetal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Metal"
-            android:textColor="@color/gray" />
+            android:textColor="@color/gray"
+            android:textSize="28sp" />
 
         <RadioButton
-            android:textSize="28sp"
             android:id="@+id/rbducttypealuminumflex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Aluminum Flex"
-            android:textColor="@color/gray" />
+            android:textColor="@color/gray"
+            android:textSize="28sp" />
 
         <RadioButton
-            android:textSize="28sp"
             android:id="@+id/rbducttypepermeable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".2"
             android:text=" Permeable "
-            android:textColor="@color/gray" />
+            android:textColor="@color/gray"
+            android:textSize="28sp" />
     </RadioGroup>
 
     <TextView
-        android:textSize="32sp"
         android:id="@+id/tvsize_return_duct"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-
         android:layout_weight="1"
+
         android:text="Size of Return Duct"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -86,20 +86,20 @@
         android:orientation="horizontal">
 
         <EditText
-            android:textSize="28sp"
             android:id="@+id/etsize_return_duct"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".2"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:textSize="28sp" />
 
         <TextView
-            android:textSize="32sp"
             android:id="@+id/tvfurnace_by"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".2"
-            android:text=" Inches " />
+            android:text=" Inches "
+            android:textSize="32sp" />
 
         <Space
             android:layout_width="fill_parent"
@@ -120,13 +120,14 @@
     </LinearLayout>
 
     <TextView
-        android:textSize="32sp"
         android:id="@+id/tvsize_return_grill"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Size of Return Grill"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -135,36 +136,38 @@
 
 
         <EditText
-            android:textSize="28sp"
             android:id="@+id/etsize_return_grill"
+            android:nextFocusDown="@id/etsize_return_grill_width"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".2"
             android:hint="Height"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:textSize="28sp" />
 
         <TextView
-            android:textSize="32sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".2"
-            android:text=" Inches by " />
+            android:text=" Inches by "
+            android:textSize="32sp" />
 
         <EditText
-            android:textSize="28sp"
             android:id="@+id/etsize_return_grill_width"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".2"
             android:hint="Height"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:textSize="28sp" />
 
         <TextView
-            android:textSize="32sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".2"
-            android:text=" Inches " />
+            android:text=" Inches "
+            android:textSize="32sp" />
 
         <Space
             android:layout_width="fill_parent"
@@ -175,14 +178,14 @@
     </LinearLayout>
 
     <TextView
-        android:textSize="32sp"
         android:id="@+id/tvfilter_location"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-
         android:layout_weight="1"
+
         android:text="Filter Location"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -197,59 +200,59 @@
             android:layout_weight="1">
 
             <RadioButton
-                android:textSize="28sp"
                 android:id="@+id/rbfilterlocationinside"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Inside Unit"
-                android:textColor="@color/gray" />
+                android:textColor="@color/gray"
+                android:textSize="28sp" />
 
 
             <RadioButton
-                android:textSize="28sp"
                 android:id="@+id/rbfilterlocationgrill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Filter Grill"
-                android:textColor="@color/gray" />
+                android:textColor="@color/gray"
+                android:textSize="28sp" />
 
             <RadioButton
-                android:textSize="28sp"
                 android:id="@+id/rbfilterlocationother"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Other"
-                android:textColor="@color/gray" />
+                android:textColor="@color/gray"
+                android:textSize="28sp" />
         </RadioGroup>
     </LinearLayout>
 
     <EditText
-        android:textSize="28sp"
         android:id="@+id/etfilter_location"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="Please enter filter location."
-        android:inputType="text" />
+        android:inputType="text"
+        android:textSize="28sp" />
 
 
     <TextView
-        android:textSize="32sp"
         android:id="@+id/tvsuplly_vent_no"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="# of Suppy Vents"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
     <EditText
-        android:textSize="28sp"
         android:id="@+id/etsuplly_vent_no"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textSize="28sp" />
 
     <!--  <TextView
    android:textSize="32sp"          android:id="@+id/tvinterested_test_seal"
@@ -267,13 +270,13 @@
           android:inputType="text" />-->
 
     <TextView
-        android:textSize="32sp"
         android:id="@+id/tvload_calcs"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Load Calculations"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -288,35 +291,35 @@
             android:layout_weight="1">
 
             <RadioButton
-                android:textSize="28sp"
                 android:id="@+id/rbloadcalcsyes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Yes"
-                android:textColor="@color/gray" />
+                android:textColor="@color/gray"
+                android:textSize="28sp" />
 
 
             <RadioButton
-                android:textSize="28sp"
                 android:id="@+id/rbloadcalcsno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="No"
-                android:textColor="@color/gray" />
+                android:textColor="@color/gray"
+                android:textSize="28sp" />
 
         </RadioGroup>
     </LinearLayout>
 
     <TextView
-        android:textSize="32sp"
         android:id="@+id/tvmeasured_return_air"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Total Measured Returned Air"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -324,20 +327,20 @@
         android:orientation="horizontal">
 
         <EditText
-            android:textSize="28sp"
             android:id="@+id/etmeasured_return_air"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".2"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textSize="28sp" />
 
         <TextView
-            android:textSize="32sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_weight=".2"
-            android:text=" CFM" />
+            android:text=" CFM"
+            android:textSize="32sp" />
 
         <Space
             android:layout_width="fill_parent"
@@ -359,82 +362,82 @@
     </LinearLayout>
 
     <TextView
-        android:textSize="32sp"
         android:id="@+id/tvsystem_performance"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
         android:text="System Performance"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
     <CheckBox
         android:id="@+id/ecbproblem_rooms"
-        android:textSize="28sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Problem Rooms"
-        android:textColor="@color/gray" />
+        android:textColor="@color/gray"
+        android:textSize="28sp" />
 
     <CheckBox
         android:id="@+id/cbmaintains_temp"
         android:layout_width="wrap_content"
-        android:textSize="28sp"
         android:layout_height="wrap_content"
         android:text="Maintains Temp"
-        android:textColor="@color/gray" />
+        android:textColor="@color/gray"
+        android:textSize="28sp" />
 
     <CheckBox
         android:id="@+id/cbhigh_bills"
         android:layout_width="wrap_content"
-        android:textSize="28sp"
         android:layout_height="wrap_content"
         android:text="High Bills"
-        android:textColor="@color/gray" />
+        android:textColor="@color/gray"
+        android:textSize="28sp" />
 
     <CheckBox
         android:id="@+id/cbnoisy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="28sp"
         android:text="Noisy"
-        android:textColor="@color/gray" />
+        android:textColor="@color/gray"
+        android:textSize="28sp" />
 
     <CheckBox
         android:id="@+id/cbcycles_freq"
         android:layout_width="wrap_content"
-        android:textSize="28sp"
         android:layout_height="wrap_content"
         android:text="Cycles Freq"
-        android:textColor="@color/gray" />
+        android:textColor="@color/gray"
+        android:textSize="28sp" />
 
     <CheckBox
         android:id="@+id/cbthermostat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="28sp"
-        android:text="Thermostat"
-        android:textColor="@color/gray" />
+        android:text="Replace Thermostat"
+        android:textColor="@color/gray"
+        android:textSize="28sp" />
 
     <TextView
-        android:textSize="32sp"
         android:id="@+id/tvother_problems"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
         android:text="Other Problems or Notes"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp" />
 
     <EditText
-        android:textSize="28sp"
         android:id="@+id/etother_problems"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="Click here to enter information. Enter as much text as you need."
         android:inputType="textCapSentences|textMultiLine"
         android:scrollHorizontally="false"
-        android:singleLine="false" />
+        android:singleLine="false"
+        android:textSize="28sp" />
 
 
     <Button

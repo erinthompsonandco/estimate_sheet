@@ -22,21 +22,16 @@
                 android:id="@+id/user_information_layout"
                 layout="@layout/user_information_layout" />
 
-
-            <include
-                android:id="@+id/system_quality_priace_layout"
-                layout="@+id/system_quality_priace_layout" />
-
             <TextView
                 android:id="@+id/tvexisting_furnace"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp"
                 android:layout_weight="1"
                 android:text="Existing Furnace"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tvfurnace_dimension"
@@ -45,7 +40,7 @@
                 android:layout_weight="1"
                 android:text="furnace Dimension"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -56,17 +51,18 @@
                     android:id="@+id/etfurnace_dimensionlength"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:nextFocusDown="@id/etfurnace_dimensionwidth"
                     android:layout_weight=".2"
                     android:hint="length"
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
                     android:text="inches"
-                    android:textSize="32sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvfurnace_by"
@@ -74,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
                     android:text=" by "
-                    android:textSize="32sp" />
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/etfurnace_dimensionwidth"
@@ -83,14 +79,14 @@
                     android:layout_weight=".2"
                     android:hint="width"
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
                     android:text="inches"
-                    android:textSize="32sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -102,14 +98,14 @@
                 android:layout_weight="1"
                 android:text="KBTUs"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/etkbtu"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:textSize="26sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tvup_flow"
@@ -119,7 +115,7 @@
 
                 android:text="Up Flow"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/etup_flow"
@@ -127,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
 
-                android:textSize="26sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tvdown_flow"
@@ -137,7 +133,7 @@
 
                 android:text="Down Flow"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/etdown_flow"
@@ -145,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
 
-                android:textSize="26sp" />
+                android:textSize="20sp" />
 
 
             <View
@@ -160,7 +156,7 @@
                 android:layout_weight="1"
                 android:text="Door Width"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -174,19 +170,19 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".2"
+                    android:layout_weight=".4"
                     android:text="inches"
-                    android:textSize="32sp" />
+                    android:textSize="24sp" />
 
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight=".8" />
+                    android:layout_weight=".6" />
 
 
             </LinearLayout>
@@ -199,7 +195,7 @@
                 android:layout_weight="1"
                 android:text="Closet Dimension"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -208,141 +204,46 @@
 
                 <EditText
                     android:id="@+id/etcloset_dimensionlength"
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".2"
                     android:hint="length"
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:nextFocusDown="@id/etcloset_dimensionwidth"
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".2"
+
                     android:text="inches"
-                    android:textSize="32sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tvcloset_by"
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".2"
+
                     android:text=" by "
-                    android:textSize="32sp" />
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/etcloset_dimensionwidth"
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".2"
+
                     android:hint="width"
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".2"
+
                     android:text="inches"
-                    android:textSize="32sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
-            <!--<LinearLayout-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="fill_parent"-->
-            <!--android:orientation="horizontal">-->
 
-            <!--<NumberPicker-->
-            <!--android:id="@+id/npclosetWidthFoot"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="fill_parent"-->
-            <!--android:layout_gravity="start"-->
-            <!--android:layout_weight=".2"-->
-            <!--android:onClick="snapIt"-->
-            <!--android:text="" />-->
-
-            <!--<NumberPicker-->
-            <!--android:id="@+id/npclosetWidthInch"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="fill_parent"-->
-            <!--android:layout_weight=".2"-->
-            <!--android:onClick="snapIt"-->
-            <!--android:text="" />-->
-
-            <!--<Space-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight=".2" />-->
-
-            <!--<NumberPicker-->
-            <!--android:id="@+id/npclosetHeightFoot"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_gravity="start"-->
-            <!--android:layout_weight=".2"-->
-            <!--android:onClick="snapIt"-->
-            <!--android:text="" />-->
-
-            <!--<NumberPicker-->
-            <!--android:id="@+id/npclosetHeightInch"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight=".2"-->
-            <!--android:onClick="snapIt"-->
-            <!--android:text="" />-->
-            <!--</LinearLayout>-->
-
-            <!--<LinearLayout-->
-
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<TextView
-                       android:textSize="32sp" -->
-            <!--android:id="@+id/tvclosetWidthFoot"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight=".2"-->
-            <!--android:text=""-->
-            <!--android:textSize="20sp" />-->
-
-            <!--<TextView
-                       android:textSize="32sp" -->
-            <!--android:id="@+id/tvclosetWidthInch"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight=".2"-->
-            <!--android:text=""-->
-            <!--android:textSize="20sp" />-->
-
-            <!--<TextView
-                       android:textSize="32sp" -->
-            <!--android:id="@+id/tvbyCloset"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="fill_parent"-->
-            <!--android:layout_weight=".2"-->
-            <!--android:text=" By "-->
-            <!--android:textSize="20sp" />-->
-
-            <!--<TextView
-                       android:textSize="32sp" -->
-            <!--android:id="@+id/tvclosetHeightFoot"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight=".2"-->
-            <!--android:text=""-->
-            <!--android:textSize="20sp" />-->
-
-            <!--<TextView
-                       android:textSize="32sp" -->
-            <!--android:id="@+id/tvclosetHeightInch"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight=".2"-->
-            <!--android:text=""-->
-            <!--android:textSize="20sp" />-->
-            <!--</LinearLayout>-->
 
             <TextView
                 android:id="@+id/tvplatform_return_air"
@@ -353,14 +254,14 @@
                 android:text="Platform Return Air"
                 android:textAppearance="?android:attr/textAppearanceLarge"
 
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/etplatform_return_air"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:textSize="26sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tvflu_pipe_type"
@@ -369,14 +270,14 @@
                 android:layout_weight="1"
                 android:text="Flu Pipe Type"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/etflu_pipe_type"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:textSize="26sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tvflu_pipe_size"
@@ -385,7 +286,7 @@
                 android:layout_weight="1"
                 android:text="Flu Pipe Size"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -398,13 +299,13 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:text="4 "
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="inches"
-                    android:textSize="32sp" />
+                    android:textSize="24sp" />
             </LinearLayout>
 
             <TextView
@@ -415,7 +316,7 @@
 
                 android:text="Comb Vents"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -436,7 +337,7 @@
                         android:layout_weight="1"
                         android:text="Yes"
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/rbcombventsno"
@@ -445,7 +346,7 @@
                         android:layout_weight="1"
                         android:text="No"
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
                 </RadioGroup>
             </LinearLayout>
 
@@ -457,7 +358,7 @@
 
                 android:text="Floor Condition"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -478,7 +379,7 @@
                         android:layout_weight="1"
                         android:text="Floors OK"
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/rbfloor_coniditionno"
@@ -488,7 +389,7 @@
 
                         android:text="Bring Wood"
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
                 </RadioGroup>
             </LinearLayout>
 
@@ -500,7 +401,7 @@
 
                 android:text="Condensate Drain"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -522,7 +423,7 @@
                         android:layout_weight="1"
                         android:text="Condensate Drain OK"
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/rbcondensate_drainno"
@@ -531,7 +432,7 @@
                         android:layout_weight="1"
                         android:text="Replace"
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
                 </RadioGroup>
             </LinearLayout>
 
@@ -543,7 +444,7 @@
                 android:text="Is The Unit In a Mobile Home?"
                 android:textAppearance="?android:attr/textAppearanceLarge"
 
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
 
             <LinearLayout
@@ -565,7 +466,7 @@
                         android:layout_weight="1"
                         android:text=" Yes "
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/rbmobilehomeno"
@@ -574,7 +475,7 @@
                         android:layout_weight="1"
                         android:text=" No "
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -585,7 +486,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Indoor Or Outdoor Furnace"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:id="@+id/indooroutdoorfurnace_layout"
@@ -598,8 +499,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_weight="1"
-                    android:textColor="@color/gray">
+                    android:textColor="@color/gray"
+                    android:layout_weight="1">
 
                     <RadioButton
                         android:id="@+id/rbindooroutdoorfurnacein"
@@ -608,7 +509,7 @@
                         android:layout_weight="1"
                         android:text=" Indoor Furnace "
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/rbindooroutdoorfurnaceout"
@@ -617,7 +518,7 @@
                         android:layout_weight="1"
                         android:text=" Outdoor Furnace "
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -626,14 +527,14 @@
             <TextView
                 android:id="@+id/tvexisting_condensor"
 
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp"
                 android:layout_weight="1"
                 android:text="Existing Condensor"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tvtons"
@@ -644,7 +545,7 @@
                 android:text="Tons"
                 android:textAppearance="?android:attr/textAppearanceLarge"
 
-                android:textSize="32sp" />
+                android:textSize="20sp" />
 
             <RadioGroup
                 android:id="@+id/rgtons"
@@ -660,7 +561,7 @@
                     android:layout_weight="1"
                     android:text="2 Tons"
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbtons2_5"
@@ -669,7 +570,7 @@
                     android:layout_weight="1"
                     android:text="2.5 Tons"
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbtons3"
@@ -678,7 +579,7 @@
                     android:layout_weight="1"
                     android:text="3 Tons"
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbtons3_5"
@@ -687,7 +588,7 @@
                     android:layout_weight="1"
                     android:text="3.5 Tons"
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbtons4"
@@ -696,7 +597,7 @@
                     android:layout_weight="1"
                     android:text="4 Tons"
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbtons5"
@@ -705,7 +606,7 @@
                     android:layout_weight="1"
                     android:text="5 Tons"
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
             </RadioGroup>
 
 
@@ -714,11 +615,10 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+
                 android:text="Pad Size"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
-            <!--topp-->
-
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -729,33 +629,36 @@
                     android:id="@+id/etpad_dimensionlengthfoot"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:nextFocusDown="@id/etpad_dimensionlengthinch"
                     android:layout_weight=".2"
-                    android:hint=""
+                    android:hint="    "
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:textSize="19sp" />
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
-                    android:text="feet"
-                    android:textSize="32sp" />
+                    android:text="ft."
+                    android:textSize="19sp" />
 
                 <EditText
                     android:id="@+id/etpad_dimensionlengthinch"
+                    android:nextFocusDown="@id/etpad_dimensionwidthfoot"
+
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
-                    android:hint=""
+                    android:hint="    "
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:textSize="19sp" />
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
-                    android:text="inch"
-                    android:textSize="32sp" />
+                    android:text="in."
+                    android:textSize="19sp" />
 
 
                 <TextView
@@ -764,40 +667,41 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
                     android:text=" by "
-                    android:textSize="32sp" />
+                    android:textSize="19sp" />
 
                 <EditText
                     android:id="@+id/etpad_dimensionwidthfoot"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:nextFocusDown="@id/etpad_dimensionwidthinch"
+
                     android:layout_weight=".2"
-                    android:hint=""
+                    android:hint="    "
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:textSize="19sp" />
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
-                    android:text="feet"
-                    android:textSize="32sp" />
+                    android:text="ft."
+                    android:textSize="19sp" />
 
                 <EditText
                     android:id="@+id/etpad_dimensionwidthinch"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
-                    android:hint=""
+                    android:hint="    "
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:textSize="19sp" />
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
-                    android:text="inch"
-                    android:textSize="32sp" />
-
+                    android:text="in."
+                    android:textSize="19sp" />
 
             </LinearLayout>
 
@@ -814,7 +718,7 @@
                 android:text="Breaker"
                 android:textAppearance="?android:attr/textAppearanceLarge"
 
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <EditText
                 android:id="@+id/etbreaker"
@@ -822,7 +726,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
 
-                android:textSize="26sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tvdiconnect"
@@ -832,7 +736,7 @@
                 android:text="Disconnect"
                 android:textAppearance="?android:attr/textAppearanceLarge"
 
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
 
             <LinearLayout
@@ -854,7 +758,7 @@
                         android:layout_weight="1"
                         android:text="Replace"
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/rbdisconnectno"
@@ -863,7 +767,7 @@
                         android:layout_weight="1"
                         android:text="Do Not Replace"
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -874,7 +778,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Amperage"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:id="@+id/amp_layout"
@@ -896,7 +800,7 @@
                         android:layout_weight="1"
                         android:text=" 30 Amps"
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
 
                     <RadioButton
                         android:id="@+id/rbampssixty"
@@ -905,7 +809,7 @@
                         android:layout_weight="1"
                         android:text=" 60 Amps"
                         android:textColor="@color/gray"
-                        android:textSize="26sp" />
+                        android:textSize="20sp" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -918,7 +822,7 @@
                 android:layout_weight="1"
                 android:text="Line set size"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
 
             <RadioGroup
@@ -936,7 +840,7 @@
                     android:layout_weight="1"
                     android:text="Liquid line"
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rblinesetsuction"
@@ -945,7 +849,7 @@
                     android:layout_weight="1"
                     android:text="Suction line"
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
             </RadioGroup>
 
@@ -962,47 +866,45 @@
                     android:id="@+id/rbopt1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight=".25"
                     android:layout_marginBottom="25dp"
                     android:layout_marginTop="25dp"
-
-                    android:layout_weight=".25"
                     android:text=""
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbopt2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
-
+                    android:layout_marginBottom="25dp"
                     android:layout_marginTop="25dp"
                     android:layout_weight=".25"
                     android:text=""
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbopt3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
+                    android:layout_marginBottom="25dp"
                     android:layout_marginTop="25dp"
                     android:layout_weight=".25"
                     android:text=""
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/rbopt4"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
+                    android:layout_marginBottom="25dp"
                     android:layout_marginTop="25dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight=".25"
                     android:text=""
                     android:textColor="@color/gray"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
             </RadioGroup>
 
 
@@ -1013,7 +915,7 @@
                 android:layout_weight="1"
                 android:text="@string/existing_condenser_approx_length"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="32sp" />
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -1025,16 +927,18 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
+
                     android:hint=""
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:nextFocusDown="@id/approx_dimensionlengthinch"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
                     android:text="feet"
-                    android:textSize="32sp" />
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/approx_dimensionlengthinch"
@@ -1043,14 +947,14 @@
                     android:layout_weight=".2"
                     android:hint=""
                     android:inputType="numberDecimal"
-                    android:textSize="26sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
                     android:text="inch"
-                    android:textSize="32sp" />
+                    android:textSize="24sp" />
             </LinearLayout>
 
 

@@ -22,13 +22,14 @@ public class package_selecter extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        TextView textView;
         super.onCreate(savedInstanceState);
         //change content view layout
         setContentView(R.layout.system_select);
         btnPackage = (Button) findViewById(R.id.btnPackage);
         btnSplit = (Button) findViewById(R.id.btnSplit);
-
+        textView = (TextView) findViewById(R.id.textView);
+        //textView.setBackgroundResource(R.color.grayseperate);
         btnPackage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

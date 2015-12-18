@@ -22,14 +22,9 @@
                 android:id="@+id/user_information_layout"
                 layout="@layout/user_information_layout" />
 
-
-            <include
-                android:id="@+id/system_quality_priace_layout"
-                layout="@+id/system_quality_priace_layout" />
-
             <TextView
                 android:id="@+id/tvexisting_furnace"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp"
@@ -59,6 +54,7 @@
                     android:layout_weight=".2"
                     android:hint="length"
                     android:inputType="numberDecimal"
+                    android:nextFocusDown="@id/etfurnace_dimensionwidth"
                     android:textSize="26sp" />
 
                 <TextView
@@ -213,6 +209,7 @@
                     android:layout_weight=".2"
                     android:hint="length"
                     android:inputType="numberDecimal"
+                    android:nextFocusDown="@id/etcloset_dimensionwidth"
                     android:textSize="26sp" />
 
                 <TextView
@@ -614,9 +611,9 @@
                         android:id="@+id/rbindooroutdoorfurnaceout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/gray"
                         android:layout_weight="1"
                         android:text=" Outdoor Furnace "
-                        android:textColor="@color/gray"
                         android:textSize="26sp" />
                 </RadioGroup>
 
@@ -626,7 +623,7 @@
             <TextView
                 android:id="@+id/tvexisting_condensor"
 
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp"
@@ -714,6 +711,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+
                 android:text="Pad Size"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="32sp" />
@@ -732,6 +730,7 @@
                     android:layout_weight=".2"
                     android:hint=""
                     android:inputType="numberDecimal"
+                    android:nextFocusDown="@id/etpad_dimensionlengthinch"
                     android:textSize="26sp" />
 
                 <TextView
@@ -744,10 +743,12 @@
                 <EditText
                     android:id="@+id/etpad_dimensionlengthinch"
                     android:layout_width="fill_parent"
+
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
                     android:hint=""
                     android:inputType="numberDecimal"
+                    android:nextFocusDown="@id/etpad_dimensionwidthfoot"
                     android:textSize="26sp" />
 
                 <TextView
@@ -771,8 +772,10 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
+
                     android:hint=""
                     android:inputType="numberDecimal"
+                    android:nextFocusDown="@id/etpad_dimensionwidthinch"
                     android:textSize="26sp" />
 
                 <TextView
@@ -964,7 +967,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="25dp"
                     android:layout_marginTop="25dp"
-
                     android:layout_weight=".25"
                     android:text=""
                     android:textColor="@color/gray"
@@ -974,8 +976,7 @@
                     android:id="@+id/rbopt2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
-
+                    android:layout_marginBottom="25dp"
                     android:layout_marginTop="25dp"
                     android:layout_weight=".25"
                     android:text=""
@@ -986,7 +987,7 @@
                     android:id="@+id/rbopt3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
+                    android:layout_marginBottom="25dp"
                     android:layout_marginTop="25dp"
                     android:layout_weight=".25"
                     android:text=""
@@ -997,7 +998,7 @@
                     android:id="@+id/rbopt4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="35dp"
+                    android:layout_marginBottom="25dp"
                     android:layout_marginTop="25dp"
                     android:layout_weight=".25"
                     android:text=""
@@ -1027,6 +1028,7 @@
                     android:layout_weight=".2"
                     android:hint=""
                     android:inputType="numberDecimal"
+                    android:nextFocusDown="@id/approx_dimensionlengthinch"
                     android:textSize="26sp" />
 
                 <TextView

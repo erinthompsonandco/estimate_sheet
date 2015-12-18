@@ -4,15 +4,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/tvnameuserinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15sp"
+        android:layout_weight="1"
+        android:text="Basic Information"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="28sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-
+        android:layout_marginRight="45dp"
         android:orientation="vertical">
-
 
         <TextView
             android:id="@+id/tvname"
@@ -22,14 +29,14 @@
             android:text="Name"
             android:textAppearance="?android:attr/textAppearanceLarge"
 
-            android:textSize="32sp" />
+            android:textSize="28sp" />
 
         <EditText
             android:id="@+id/etname"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:textSize="26sp" />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/tvaddress"
@@ -39,7 +46,7 @@
             android:text="Address"
             android:textAppearance="?android:attr/textAppearanceLarge"
 
-            android:textSize="32sp" />
+            android:textSize="28sp" />
 
         <EditText
             android:id="@+id/etaddress"
@@ -48,7 +55,7 @@
             android:inputType="text"
 
             android:textColor="@color/gray"
-            android:textSize="26sp" />
+            android:textSize="28sp" />
 
         <TextView
             android:id="@+id/tvphone"
@@ -58,7 +65,7 @@
             android:text="Phone"
             android:textAppearance="?android:attr/textAppearanceLarge"
 
-            android:textSize="32sp" />
+            android:textSize="28sp" />
 
         <EditText
             android:id="@+id/etphone"
@@ -88,25 +95,13 @@
             android:textColor="@color/gray"
             android:textSize="26sp" />
 
-
-        <TextView
-            android:id="@+id/tvpricequality"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15sp"
-            android:layout_weight="1"
-            android:text="Price and Quality"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="32sp" />
-
-
         <TextView
             android:id="@+id/tvpricetoreplace"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".25"
             android:text=" Price to replace "
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <EditText
             android:id="@+id/etpricetoreplace"
@@ -115,18 +110,20 @@
             android:layout_weight=".25"
             android:inputType="numberDecimal"
             android:textColor="@color/gray"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
+
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".25"
             android:text=" System Quality "
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="horizontal">
+
             <RadioGroup
                 android:id="@+id/rgquality"
                 android:layout_width="match_parent"
@@ -171,7 +168,6 @@
                     android:textSize="28sp" />
             </RadioGroup>
         </LinearLayout>
-
 
     </LinearLayout>
 </LinearLayout>

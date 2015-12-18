@@ -27,10 +27,7 @@
             android:name=".FormOptions"
             android:icon="@mipmap/ic_launcher"
             android:label="Options" />
-        <activity
-            android:name=".FormSend"
-            android:icon="@mipmap/ic_launcher"
-            android:label="Job Information" />
+
         <activity
             android:name=".FormView"
             android:icon="@mipmap/ic_launcher"
@@ -43,6 +40,12 @@
             android:name=".packageUnitSend"
             android:icon="@mipmap/ic_launcher"
             android:label="Package Unit info" />
+        <activity
+            android:name=".viewPackageSystem"
+            android:label="Package Unit info" />
+        <activity
+            android:name=".viewSplitSystem"
+            android:label="Split Unit info" />
         <activity
             android:name=".package_selecter"
             android:icon="@mipmap/ic_launcher"

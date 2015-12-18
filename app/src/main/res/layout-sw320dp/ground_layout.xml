@@ -5,9 +5,18 @@
     android:orientation="vertical"
     android:visibility="gone">
 
+    <TextView
+        android:id="@+id/tvground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15sp"
+        android:layout_weight="1"
+        android:text="Ground Unit"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="24sp" />
 
     <TextView
-        android:textSize="32sp"
+        android:textSize="24sp"
         android:id="@+id/tvpad_dimension"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -23,77 +32,79 @@
         android:orientation="horizontal">
 
         <EditText
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:id="@+id/etpad_dimensionlengthfoot"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint=""
+android:nextFocusDown="@id/etpad_dimensionlengthinch"
+            android:hint="        "
             android:inputType="numberDecimal" />
 
         <TextView
-            android:textSize="32sp"
-            android:layout_width="fill_parent"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="feet" />
+            
+            android:text="ft." />
 
         <EditText
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:id="@+id/etpad_dimensionlengthinch"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
+            android:nextFocusDown="@id/etpad_dimensionwidthfoot"
+
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint=""
+            
+            android:hint="        "
             android:inputType="numberDecimal" />
 
         <TextView
-            android:textSize="32sp"
-            android:layout_width="fill_parent"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="inch" />
+            
+            android:text="in." />
 
 
         <TextView
-            android:textSize="32sp"
+            android:textSize="20sp"
             android:id="@+id/tvpad_by"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            
             android:text=" by " />
 
         <EditText
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:id="@+id/etpad_dimensionwidthfoot"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
+            android:nextFocusDown="@id/etpad_dimensionwidthinch"
+
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint=""
+            android:hint="        "
             android:inputType="numberDecimal" />
 
         <TextView
-            android:textSize="32sp"
-            android:layout_width="fill_parent"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="feet" />
+            
+            android:text="ft." />
 
         <EditText
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:id="@+id/etpad_dimensionwidthinch"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint=""
+            android:hint="        "
             android:inputType="numberDecimal" />
 
         <TextView
-            android:textSize="32sp"
-            android:layout_width="fill_parent"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="inches" />
+            
+            android:text="in." />
 
 
     </LinearLayout>
@@ -105,7 +116,7 @@
         android:layout_marginBottom="20sp" />
 
     <TextView
-        android:textSize="32sp"
+        android:textSize="24sp"
         android:id="@+id/tvfittingtype"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -119,7 +130,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:id="@+id/etfittingtype"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -128,7 +139,7 @@
             android:textColor="@color/gray" />
 
         <TextView
-            android:textSize="32sp"
+            android:textSize="24sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -149,7 +160,7 @@
     </LinearLayout>
 
     <TextView
-        android:textSize="32sp"
+        android:textSize="24sp"
         android:id="@+id/tvroomtoexpand"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -172,7 +183,7 @@
 
             <RadioButton
                 android:id="@+id/rbroomtoexpandyes"
-                android:textSize="28sp"
+                android:textSize="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -181,7 +192,7 @@
 
             <RadioButton
                 android:id="@+id/rbroomtoexpandno"
-                android:textSize="28sp"
+                android:textSize="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

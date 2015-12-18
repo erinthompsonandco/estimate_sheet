@@ -4,101 +4,96 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/tvnameuserinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Basic Information"
+        android:layout_marginBottom="15sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-
         android:orientation="vertical">
 
 
         <TextView
+            android:textSize="24sp"
             android:id="@+id/tvname"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Name"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-
-            android:textSize="32sp" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
+            android:textSize="24sp"
             android:id="@+id/etname"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textSize="26sp" />
+            android:inputType="text" />
 
         <TextView
+            android:textSize="24sp"
             android:id="@+id/tvaddress"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Address"
-            android:textAppearance="?android:attr/textAppearanceLarge"
 
-            android:textSize="32sp" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
+            android:textSize="24sp"
             android:id="@+id/etaddress"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-
             android:textColor="@color/gray"
-            android:textSize="26sp" />
+
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
         <TextView
+            android:textSize="24sp"
             android:id="@+id/tvphone"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Phone"
-            android:textAppearance="?android:attr/textAppearanceLarge"
 
-            android:textSize="32sp" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
+            android:textSize="24sp"
             android:id="@+id/etphone"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:inputType="phone"
             android:textColor="@color/gray"
 
-            android:textSize="26sp" />
+            android:inputType="phone" />
 
         <TextView
+            android:textSize="24sp"
             android:id="@+id/tvEmail"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Email"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="32sp" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
         <EditText
+            android:textSize="24sp"
             android:id="@+id/etEmail"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
-            android:inputType="textEmailAddress"
             android:textColor="@color/gray"
-            android:textSize="26sp" />
-
-
-        <TextView
-            android:id="@+id/tvpricequality"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15sp"
-            android:layout_weight="1"
-            android:text="Price and Quality"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="32sp" />
-
+            android:inputType="textEmailAddress" />
 
         <TextView
             android:id="@+id/tvpricetoreplace"
@@ -116,6 +111,8 @@
             android:inputType="numberDecimal"
             android:textColor="@color/gray"
             android:textSize="20sp" />
+
+
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -141,7 +138,7 @@
                     android:layout_weight="1"
                     android:text="Basic"
                     android:textColor="@color/gray"
-                    android:textSize="28sp" />
+                    android:textSize="24sp" />
 
                 <RadioButton
                     android:id="@+id/rbdeluxe"
@@ -150,7 +147,7 @@
                     android:layout_weight="1"
                     android:text="Deluxe"
                     android:textColor="@color/gray"
-                    android:textSize="28sp" />
+                    android:textSize="24sp" />
 
                 <RadioButton
                     android:id="@+id/rbpremire"
@@ -159,7 +156,7 @@
                     android:layout_weight="1"
                     android:text="Premiere"
                     android:textColor="@color/gray"
-                    android:textSize="28sp" />
+                    android:textSize="24sp" />
 
                 <RadioButton
                     android:id="@+id/rboptimum"
@@ -168,7 +165,7 @@
                     android:layout_weight="1"
                     android:text="Optimum"
                     android:textColor="@color/gray"
-                    android:textSize="28sp" />
+                    android:textSize="24sp" />
             </RadioGroup>
         </LinearLayout>
 
